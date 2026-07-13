@@ -658,8 +658,10 @@ footer {
 /* ===== RESPONSIVITÉ ===== */
 @media (max-width: 992px) {
     .header-sticky .container {
-        flex-direction: column;
-        gap: 15px;
+        flex-direction: row; /* Garder l'alignement horizontal pour la responsivité */
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
     }
     
     nav {
