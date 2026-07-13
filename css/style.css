@@ -199,8 +199,15 @@ nav a:hover::after {
 
 /* ===== BANNIÈRE D'ACCUEIL ===== */
 .banner {
-    background: linear-gradient(135deg, rgba(210, 105, 30, 0.7), rgba(46, 139, 87, 0.7)), url('../images/le restaurant.jfif') no-repeat center center/cover;
-    height: 80vh;
+    /* Image d'arrière-plan couvrant tout l'écran sans déformation */
+    background-image: linear-gradient(135deg, rgba(210, 105, 30, 0.7), rgba(46, 139, 87, 0.7)), url('../images/le restaurant.jfif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; /* Force la couverture complète */
+    /* Ne pas utiliser background-attachment: fixed sur mobile (problèmes de performance), laisser par défaut */
+    height: 100vh;     /* Couvrir la hauteur entière de la fenêtre */
+    min-height: 100vh; /* Assurer couverture sur petits écrans */
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
