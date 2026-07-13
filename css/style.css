@@ -89,8 +89,9 @@ a {
 
 .header-sticky .container {
     display: flex;
-    justify-content:center;
+    justify-content: space-between;
     align-items: center;
+    gap: 20px;
 }
 
 .logo {
@@ -109,6 +110,9 @@ a {
 nav {
     display: flex;
     gap: 20px;
+    flex: 1 1 auto; /* Permet au nav de prendre l'espace central */
+    justify-content: center; /* Centre les liens entre le logo et le bouton */
+    align-items: center;
 }
 
 nav a {
