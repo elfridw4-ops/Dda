@@ -75,6 +75,33 @@
             </div>
         </section>
 
+    <!-- Script pour les filtres (ajouté pour index.html) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filtreBtns = document.querySelectorAll('.filtre-btn');
+            const cartes = document.querySelectorAll('.carte');
+            
+            filtreBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Retirer la classe active de tous les boutons
+                    filtreBtns.forEach(b => b.classList.remove('active'));
+                    // Ajouter la classe active au bouton cliqué
+                    btn.classList.add('active');
+                    
+                    const filtre = btn.getAttribute('data-filter');
+                    
+                    cartes.forEach(carte => {
+                        if (filtre === 'all' || carte.getAttribute('data-category') === filtre) {
+                            carte.style.display = 'block';
+                        } else {
+                            carte.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
         <!-- Section "Nos Plats" -->
         <section id="plats" class="section-plats" aria-labelledby="plats-heading">
             <div class="container">
@@ -281,6 +308,35 @@
             btn.classList.toggle('active');
             btn.setAttribute('aria-expanded', !isExpanded);
             btn.setAttribute('aria-label', isExpanded ? 'Ouvrir le menu mobile' : 'Fermer le menu mobile');
+        });
+    </script>
+    <!-- Script pour les filtres -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filtreBtns = document.querySelectorAll('.filtre-btn');
+            const cartes = document.querySelectorAll('.carte');
+            
+            if (filtreBtns.length === 0 || cartes.length === 0) return;
+            
+            filtreBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Retirer la classe active de tous les boutons
+                    filtreBtns.forEach(b => b.classList.remove('active'));
+                    // Ajouter la classe active au bouton cliqué
+                    btn.classList.add('active');
+                    
+                    const filtre = btn.getAttribute('data-filter');
+                    
+                    cartes.forEach(carte => {
+                        const cat = carte.getAttribute('data-category') || 'plats';
+                        if (filtre === 'all' || cat === filtre) {
+                            carte.style.display = 'block';
+                        } else {
+                            carte.style.display = 'none';
+                        }
+                    });
+                });
+            });
         });
     </script>
 </body>
