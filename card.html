@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr"> <!-- Langue définie pour l'accessibilité -->
+
+<head>
+    <meta charset="UTF-8"> <!-- Encodage des caractères -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsivité -->
+    <title>Carte de plat</title>
+    <link rel="stylesheet" href="css/style.css"> <!-- Lien vers le CSS centralisé -->
+</head>
+
+<body>
+    <!--
+        COMPOSANT : Carte de plat
+        ------------------------
+        Rôle : Affiche un plat, un membre de l'équipe ou un témoignage avec une image, un titre, une description et un prix (si applicable).
+        
+        Structure recommandée :
+        <div class="carte" data-category="plats" role="article" aria-label="Nom du plat">
+            <div class="carte-image">
+                <img src="images/plat.jpg" alt="Description de l'image">
+                <span class="prix">5000 FCFA</span>
+            </div>
+            <div class="carte-content">
+                <h3>Nom du plat</h3>
+                <p>Description du plat.</p>
+                <a href="#contact" class="btn">Commander</a>
+            </div>
+        </div>
+        
+        Classes utilisées :
+        - .carte : Conteneur principal de la carte.
+        - .carte-image : Conteneur pour l'image et le prix.
+        - .carte-content : Conteneur pour le titre, la description et le bouton.
+        - .prix : Style pour le prix du plat.
+        
+        Bonnes pratiques :
+        - Toujours utiliser un attribut `alt` pour les images.
+        - Utiliser `role="article"` et `aria-label` pour l'accessibilité.
+        - Ajouter un attribut `data-category` pour les filtres (ex: "plats", "desserts").
+        - Privilégier les descriptions courtes et accrocheuses.
+        
+        Exemples d'utilisation :
+        - Afficher un plat : <div class="carte" data-category="plats">...</div>
+        - Afficher un membre de l'équipe : <div class="carte">...</div>
+        - Afficher un témoignage : <div class="carte">...</div>
+    -->
+    <div class="carte">
+        <div class="carte-image">
+            <img src="images/1.jpg" alt="Poulet Braisé"> <!-- Image du plat -->
+            <span class="prix">5000 FCFA</span>
+        </div>
+        <div class="carte-content">
+            <h2>Poulet Braisé</h2>
+            <p>Délicieux poulet accompagné d'alloco et de sauce piquante.</p>
+            <a href="#" class="btn">Commander</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="fr"> <!-- Langue définie pour l'accessibilité -->
+
+<head>
+    <meta charset="UTF-8"> <!-- Encodage des caractères -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsivité -->
+    <meta name="description" content="Découvrez notre menu au Délice Africain : plats authentiques, desserts et boissons."> <!-- SEO -->
+    <title>Le Délice Africain - Notre Menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css"> <!-- Lien vers le CSS centralisé -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- Icônes Font Awesome -->
+</head>
+
+<body>
+    <!--
+        PAGE RESTAURANT
+        --------------
+        Rôle : Présenter le menu, les horaires et les informations pratiques du restaurant.
+        Sections :
+        - Barre de navigation collante.
+        - Hero Section avec titre et sous-titre.
+        - Filtres pour le menu.
+        - Section "Nos Plats" avec cartes.
+        - Section "Horaires" avec tableau et carte.
+        - Section "Contact" avec formulaire.
+        - Footer avec copyright.
+    -->
+    <header class="header-sticky">
+        <div class="container">
+            <!-- Logo -->
+            <a href="index.html" class="logo" aria-label="Accueil - Le Délice Africain">
+                <i class="fas fa-utensils"></i> Le Délice Africain
+            </a>
+            
+            <!-- Barre de navigation -->
+            <nav aria-label="Menu principal">
+                <a href="index.html#accueil" aria-label="Accéder à la page d'accueil">Accueil</a>
+                <a href="#plats" aria-label="Voir notre menu">Notre Menu</a>
+                <a href="index.html#galerie" aria-label="Voir notre galerie photo">Galerie</a>
+                <a href="index.html#apropos" aria-label="En savoir plus sur nous">À propos</a>
+                <a href="#contact" aria-label="Nous contacter">Contact</a>
+            </nav>
+            
+            <!-- Bouton mobile -->
+            <button class="mobile-menu-btn" aria-label="Ouvrir le menu mobile" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times" style="display: none;"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="banner" aria-labelledby="menu-heading">
+            <div class="container">
+                <h1 id="menu-heading">Découvrez notre <span>Menu</span></h1>
+                <p>Des plats authentiques, préparés avec amour et des ingrédients frais.</p>
+                <a href="#plats" class="btn" aria-label="Voir nos plats">Voir nos plats</a>
+            </div>
+        </section>
+
+        <!-- Filtres -->
+        <section class="filtres" aria-labelledby="filtres-heading">
+            <div class="container">
+                <h2 id="filtres-heading" class="visually-hidden">Filtres de menu</h2>
+                <div class="filtres-container">
+                    <button class="filtre-btn active" data-filter="all">Tous</button>
+                    <button class="filtre-btn" data-filter="entrees">Entrées</button>
+                    <button class="filtre-btn" data-filter="plats">Plats principaux</button>
+                    <button class="filtre-btn" data-filter="desserts">Desserts</button>
+                    <button class="filtre-btn" data-filter="boissons">Boissons</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section "Nos Plats" -->
+        <section id="plats" class="section-plats" aria-labelledby="plats-heading">
+            <div class="container">
+                <h2 id="plats-heading">Nos <span>Plats</span></h2>
+                <p class="subtitle">Découvrez nos spécialités, préparées avec des ingrédients frais et locaux.</p>
+                
+                <div class="plats-container">
+                    <!-- Plat 1 -->
+                    <div class="carte" data-category="plats" role="article" aria-label="Poisson Braisé">
+                        <div class="carte-image">
+                            <img src="images/Tilapia braisé.jfif" alt="Poisson braisé accompagnant Attchièkè, servi dans une assiette">
+                            <span class="prix" aria-label="Prix : 5000 FCFA">5000 FCFA</span>
+                        </div>
+                        <div class="carte-content">
+                            <h3>Poisson Braisé</h3>
+                            <p>Délicieux poisson mariné et grillé, accompagné d'alloco croustillant et de sauce piquante.</p>
+                            <a href="#contact" class="btn" aria-label="Commander le Poisson Braisé">Commander</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Plat 2 -->
+                    <div class="carte" data-category="plats" role="article" aria-label="Poisson Braisé">
+                        <div class="carte-image">
+                            <img src="images/poisson.jfif" alt="Poisson braisé avec épices locales, servi dans une assiette">
+                            <span class="prix" aria-label="Prix : 6000 FCFA">6000 FCFA</span>
+                        </div>
+                        <div class="carte-content">
+                            <h3>Poisson Braisé</h3>
+                            <p>Poisson frais grillé avec des épices locales, accompagné de légumes et de plantains.</p>
+                            <a href="#contact" class="btn" aria-label="Commander le Poisson Braisé">Commander</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Plat 3 -->
+                    <div class="carte" data-category="plats" role="article" aria-label="Riz Gras">
+                        <div class="carte-image">
+                            <img src="images/1.jfif" alt="Riz gras avec viande et légumes, servi dans une assiette">
+                            <span class="prix" aria-label="Prix : 3500 FCFA">3500 FCFA</span>
+                        </div>
+                        <div class="carte-content">
+                            <h3>Riz Gras</h3>
+                            <p>Riz cuisiné avec des morceaux de viande, des légumes et une sauce riche en saveurs.</p>
+                            <a href="#contact" class="btn" aria-label="Commander le Riz Gras">Commander</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Plat 4 (Entrée) -->
+                    <div class="carte" data-category="entrees" role="article" aria-label="Pastels Sénégalais">
+                        <div class="carte-image">
+                            <img src="images/pastels-senegalais.jfif" alt="Pastels sénégalais, entrée traditionnelle">
+                            <span class="prix" aria-label="Prix : 3000 FCFA">500 FCFA</span>
+                        </div>
+                        <div class="carte-content">
+                            <h3>Pastels Sénégalais</h3>
+                            <p>Délicieux beignets fourrés à la viande ou au poisson, croustillants à l'extérieur et moelleux à l'intérieur.</p>
+                            <a href="#contact" class="btn" aria-label="Commander les Pastels Sénégalais">Commander</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Plat 5 (Entrée) -->
+                    <div class="carte" data-category="entrees" role="article" aria-label="Beignets Maison">
+                        <div class="carte-image">
+                            <img src="images/beignets-maison.jfif" alt="Beignets maison, croustillants et dorés">
+                            <span class="prix" aria-label="Prix : 2000 FCFA">500 FCFA</span>
+                        </div>
+                        <div class="carte-content">
+                            <h3>Beignets Maison</h3>
+                            <p>Beignets croustillants et dorés, parfaits pour accompagner vos boissons.</p>
+                            <a href="#contact" class="btn" aria-label="Commander les Beignets Maison">Commander</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Plat 6 (Dessert) -->
+                    <div class="carte" data-category="desserts" role="article" aria-label="Desserts Variés">
+                        <div class="carte-image">
+                            <img src="images/desserts-variés.jfif" alt="Desserts variés : gâteaux, cookies et pâtisseries">
+                            <span class="prix" aria-label="Prix : 3500 FCFA">3500 FCFA</span>
+                        </div>
+                        <div class="carte-content">
+                            <h3>Desserts Variés</h3>
+                            <p>Une sélection de desserts maison : gâteaux, cookies et pâtisseries pour satisfaire vos envies sucrées.</p>
+                            <a href="#contact" class="btn" aria-label="Commander les Desserts Variés">Commander</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Plat 7 (Boisson) -->
+                    <div class="carte" data-category="boissons" role="article" aria-label="Bissap">
+                        <div class="carte-image">
+                            <img src="images/bissap.jfif" alt="Verre de bissap, boisson traditionnelle à l'hibiscus">
+                            <span class="prix" aria-label="Prix : 1000 FCFA">1000 FCFA</span>
+                        </div>
+                        <div class="carte-content">
+                            <h3>Bissap</h3>
+                            <p>Boisson rafraîchissante à base d'hibiscus, sucrée et acidulée.</p>
+                            <a href="#contact" class="btn" aria-label="Commander le Bissap">Commander</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Plat 8 (Plat principal) -->
+                    <div class="carte" data-category="plats" role="article" aria-label="Plat du Roi">
+                        <div class="carte-image">
+                            <img src="images/plat-du-roi.jfif" alt="Plat du roi, spécialité du chef">
+                            <span class="prix" aria-label="Prix : 7000 FCFA">7000 FCFA</span>
+                        </div>
+                        <div class="carte-content">
+                            <h3>Plat du Roi</h3>
+                            <p>Notre spécialité : un plat riche en saveurs, préparé avec des ingrédients frais et des épices locales.</p>
+                            <a href="#contact" class="btn" aria-label="Commander le Plat du Roi">Commander</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section "Horaires" -->
+        <section class="section-horaires" aria-labelledby="horaires-heading">
+            <div class="container">
+                <h2 id="horaires-heading">Nos <span>Horaires</span></h2>
+                <p class="subtitle">Nous sommes ouverts tous les jours pour vous servir.</p>
+                
+                <div class="horaires-content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Jour</th>
+                                <th>Ouverture</th>
+                                <th>Fermeture</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Lundi</td>
+                                <td>10h00</td>
+                                <td>22h00</td>
+                            </tr>
+                            <tr>
+                                <td>Mardi</td>
+                                <td>10h00</td>
+                                <td>22h00</td>
+                            </tr>
+                            <tr>
+                                <td>Mercredi</td>
+                                <td>10h00</td>
+                                <td>22h00</td>
+                            </tr>
+                            <tr>
+                                <td>Jeudi</td>
+                                <td>10h00</td>
+                                <td>22h00</td>
+                            </tr>
+                            <tr>
+                                <td>Vendredi</td>
+                                <td>10h00</td>
+                                <td>23h00</td>
+                            </tr>
+                            <tr>
+                                <td>Samedi</td>
+                                <td>10h00</td>
+                                <td>23h00</td>
+                            </tr>
+                            <tr>
+                                <td>Dimanche</td>
+                                <td>12h00</td>
+                                <td>21h00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="carte-localisation">
+                        <h3>Où nous trouver ?</h3>
+                        <p>123 Rue de la Cuisine, Abidjan, Côte d'Ivoire</p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.345678901234!2d-3.9876543!3d5.3456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMjAnNDQuNCJOIDPCsDU5JzEyLjQiVw!5e0!3m2!1sfr!2sci!4v1234567890123!5m2!1sfr!2sci" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section "Contact" -->
+        <section id="contact" class="section-contact" aria-labelledby="contact-heading">
+            <div class="container">
+                <h2 id="contact-heading">Contactez-<span>nous</span></h2>
+                <p class="subtitle">Une question ou une réservation ? N'hésitez pas à nous contacter.</p>
+                
+                <form class="contact-form" aria-label="Formulaire de contact">
+                    <div class="form-group">
+                        <input type="text" placeholder="Votre nom" required aria-label="Votre nom">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Votre email" required aria-label="Votre email">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Votre téléphone" aria-label="Votre téléphone">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Votre message" required aria-label="Votre message"></textarea>
+                    </div>
+                    <button type="submit" class="btn" aria-label="Envoyer le formulaire">Envoyer</button>
+                </form>
+                <div class="confirmation-message" style="display: none;">
+                    <p>Merci pour votre message ! Nous vous répondrons sous 24h.</p>
+                </div>
+                <script>
+                    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+                        e.preventDefault(); // Empêche l'envoi réel pour la démo
+                        this.style.display = 'none';
+                        document.querySelector('.confirmation-message').style.display = 'block';
+                    });
+                </script>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Le Délice Africain. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Script pour le menu mobile -->
+    <script>
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const nav = document.querySelector('nav');
+            const btn = document.querySelector('.mobile-menu-btn');
+            const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+            nav.classList.toggle('active');
+            btn.classList.toggle('active');
+            btn.setAttribute('aria-expanded', !isExpanded);
+            btn.setAttribute('aria-label', isExpanded ? 'Ouvrir le menu mobile' : 'Fermer le menu mobile');
+        });
+    </script>
+
+    <!-- Script pour les filtres -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filtreBtns = document.querySelectorAll('.filtre-btn');
+            const cartes = document.querySelectorAll('.carte');
+            
+            filtreBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Retirer la classe active de tous les boutons
+                    filtreBtns.forEach(b => b.classList.remove('active'));
+                    // Ajouter la classe active au bouton cliqué
+                    btn.classList.add('active');
+                    
+                    const filtre = btn.getAttribute('data-filter');
+                    
+                    cartes.forEach(carte => {
+                        if (filtre === 'all' || carte.getAttribute('data-category') === filtre) {
+                            carte.style.display = 'block';
+                        } else {
+                            carte.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

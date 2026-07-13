@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr"> <!-- Langue définie pour l'accessibilité -->
+
+<head>
+    <meta charset="UTF-8"> <!-- Encodage des caractères -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsivité -->
+    <meta name="description" content="Découvrez notre restaurant proposant des plats africains authentiques, préparés avec passion par notre chef Jean Dupont."> <!-- SEO -->
+    <title>Le Délice Africain - Restaurant de Cuisine Traditionnelle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css"> <!-- Lien vers le CSS centralisé -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- Icônes Font Awesome -->
+</head>
+
+<body>
+    <!--
+        PAGE D'ACCUEIL
+        -------------
+        Rôle : Page principale du site, intégrant tous les composants.
+        Sections :
+        - Barre de navigation collante.
+        - Bannière d'accueil avec slogan.
+        - Section "Nos Plats" avec effets de survol.
+        - Section "À propos" avec profil du chef.
+        - Section "Contact" avec formulaire.
+        - Footer avec liens et copyright.
+    -->
+    <header class="header-sticky">
+        <div class="container">
+            <!-- Logo -->
+            <a href="#accueil" class="logo" aria-label="Accueil - Le Délice Africain">
+                <i class="fas fa-utensils"></i> Le Délice Africain
+            </a>
+            
+            <!-- Barre de navigation -->
+            <nav aria-label="Menu principal">
+                <a href="#accueil" aria-label="Accéder à la page d'accueil">Accueil</a>
+                <a href="#plats" aria-label="Voir nos plats">Nos Plats</a>
+                <a href="galerie.html" aria-label="Voir notre galerie photo">Galerie</a>
+                <a href="#apropos" aria-label="En savoir plus sur nous">À propos</a>
+                <a href="#contact" aria-label="Nous contacter">Contact</a>
+            </nav>
+            
+            <!-- Bouton mobile -->
+            <button class="mobile-menu-btn" aria-label="Ouvrir le menu mobile" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times" style="display: none;"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Bannière d'accueil -->
+        <section id="accueil" class="banner" aria-labelledby="banner-heading">
+            <div class="container">
+                <h1 id="banner-heading">Bienvenue au <span>Délice Africain</span></h1>
+                <p>Découvrez les saveurs authentiques de l'Afrique dans un cadre chaleureux et convivial.</p>
+                <div class="banner-cta">
+                    <a href="#contact" class="btn" aria-label="Réserver une table">Réserver une table</a>
+                    <a href="resto.html" class="btn btn-secondary" aria-label="Voir notre menu">Voir notre menu</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filtres -->
+        <section class="filtres" aria-labelledby="filtres-heading">
+            <div class="container">
+                <h2 id="filtres-heading" class="visually-hidden">Filtres de plats</h2>
+                <div class="filtres-container">
+                    <button class="filtre-btn active" data-filter="all">Tous</button>
+                    <button class="filtre-btn" data-filter="plats">Plats principaux</button>
+                    <button class="filtre-btn" data-filter="desserts">Desserts</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section "Nos Plats" -->
+        <section id="plats" class="section-plats" aria-labelledby="plats-heading">
+            <div class="container">
+                <h2 id="plats-heading">Nos Plats <span>Signature</span></h2>
+                <p class="subtitle">Découvrez nos spécialités, préparées avec des ingrédients frais et locaux.</p>
+                
+                <div class="plats-container">
+                    <!-- Carte 1 -->
+                    <div class="carte" role="article" aria-label="Poulet Braisé">
+                        <div class="carte-image">
+                            <img src="images/Tilapia braisé.jfif" alt="Poulet braisé avec alloco, servi dans une assiette">
+                            <span class="prix" aria-label="Prix : 5000 FCFA">5000 FCFA</span>
+                        </div>
+                        <div class="carte-content">
+                            <h3>Poulet Braisé</h3>
+                            <p>Délicieux poulet mariné et grillé, accompagné d'alloco croustillant et de sauce piquante.</p>
+                            <a href="#" class="btn" aria-label="Commander le Poulet Braisé">Commander</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Carte 2 -->
+                    <div class="carte" role="article" aria-label="Poisson Braisé">
+                        <div class="carte-image">
+                            <img src="images/poisson.jfif" alt="Poisson braisé avec épices locales, servi dans une assiette">
+                            <span class="prix" aria-label="Prix : 6000 FCFA">6000 FCFA</span>
+                        </div>
+                        <div class="carte-content">
+                            <h3>Poisson Braisé</h3>
+                            <p>Poisson frais grillé avec des épices locales, accompagné de légumes et de plantains.</p>
+                            <a href="#" class="btn" aria-label="Commander le Poisson Braisé">Commander</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Carte 3 (ajoutée pour équilibrer la grille) -->
+                    <div class="carte" role="article" aria-label="Riz Gras">
+                        <div class="carte-image">
+                            <img src="images/1.jfif" alt="Riz gras avec viande et légumes, servi dans une assiette">
+                            <span class="prix" aria-label="Prix : 3500 FCFA">3500 FCFA</span>
+                        </div>
+                        <div class="carte-content">
+                            <h3>Riz Gras</h3>
+                            <p>Riz cuisiné avec des morceaux de viande, des légumes et une sauce riche en saveurs.</p>
+                            <a href="#" class="btn" aria-label="Commander le Riz Gras">Commander</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section "À propos" -->
+        <section id="apropos" class="section-apropos" aria-labelledby="apropos-heading">
+            <div class="container">
+                <div class="apropos-content">
+                    <div class="apropos-image">
+                        <img src="images/chef.jfif" alt="Jean Dupont, chef cuisinier et fondateur du restaurant">
+                    </div>
+                    <div class="apropos-text">
+                        <h2 id="apropos-heading">À propos de <span>nous</span></h2>
+                        <p>Le Délice Africain est un restaurant dédié à la cuisine africaine authentique. Fondé en 2020 par Jean Dupont, notre chef passionné, nous mettons un point d'honneur à utiliser des ingrédients frais et locaux pour préparer des plats savoureux et équilibrés.</p>
+                        <p>Notre mission est de faire découvrir les richesses culinaires de l'Afrique à travers des recettes traditionnelles revisitées avec modernité.</p>
+                        <a href="#contact" class="btn" aria-label="Contacter Jean Dupont">Contactez-nous</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section "Notre Équipe" -->
+        <section id="equipe" class="section-equipe" aria-labelledby="equipe-heading">
+            <div class="container">
+                <h2 id="equipe-heading">Notre <span>Équipe</span></h2>
+                <p class="subtitle">Rencontrez les passionnés qui font vivre Le Délice Africain.</p>
+                
+                <div class="equipe-container">
+                    <div class="membre">
+                        <img src="images/chef.jfif" alt="Jean Dupont, Chef cuisinier">
+                        <h3>Jean Dupont</h3>
+                        <p>Chef cuisinier et fondateur</p>
+                    </div>
+                    <div class="membre">
+                        <img src="images/marie.jfif" alt="Marie Kouamé, Serveuse">
+                        <h3>Marie Kouamé</h3>
+                        <p>Responsable de salle</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section "Témoignages" -->
+        <section class="section-testimonials" aria-labelledby="testimonials-heading">
+            <div class="container">
+                <h2 id="testimonials-heading">Ce que nos <span>clients</span> disent</h2>
+                <p class="subtitle">Découvrez les avis de nos clients satisfaits.</p>
+                
+                <div class="testimonials-container">
+                    <div class="testimonial">
+                        <img src="images/client-1.jfif" alt="Client satisfait">
+                        <h3>Koffi Yao</h3>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>"Un délice ! Les plats sont toujours frais et savoureux. Je recommande vivement."</p>
+                    </div>
+                    <div class="testimonial">
+                        <img src="images/client-2.jfif" alt="Cliente satisfaite">
+                        <h3>Aminata Diop</h3>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>"L'ambiance est chaleureuse et le service impeccable. J'adore leurs plats végétariens."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section "Contact" -->
+        <section id="contact" class="section-contact" aria-labelledby="contact-heading">
+            <div class="container">
+                <h2 id="contact-heading">Contactez-<span>nous</span></h2>
+                <p class="subtitle">Une question ou une réservation ? N'hésitez pas à nous contacter.</p>
+                <style>
+                    .loader {
+                        display: none;
+                    }
+                    .confirmation-message {
+                        display: none;
+                    }
+                </style>
+                <form class="contact-form" aria-label="Formulaire de contact">
+                    <div class="form-group">
+                        <input type="text" placeholder="Votre nom" required aria-label="Votre nom">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Votre email" required aria-label="Votre email">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Votre téléphone" aria-label="Votre téléphone">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Votre message" required aria-label="Votre message"></textarea>
+                    </div>
+                    <button type="submit" class="btn" aria-label="Envoyer le formulaire">
+                        <span class="btn-text">Envoyer</span>
+                        <span class="loader">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </span>
+                    </button>
+                </form>
+                <div class="confirmation-message">
+                    <p>Merci pour votre message ! Nous vous répondrons sous 24h.</p>
+                </div>
+                <script>
+                    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+                        e.preventDefault(); // Empêche l'envoi réel pour la démo
+                        const submitBtn = this.querySelector('button[type="submit"]');
+                        const btnText = submitBtn.querySelector('.btn-text');
+                        const loader = submitBtn.querySelector('.loader');
+                        
+                        // Afficher le loader et masquer le texte du bouton
+                        btnText.style.display = 'none';
+                        loader.style.display = 'inline-block';
+                        
+                        // Simuler un délai de soumission
+                        setTimeout(() => {
+                            this.style.display = 'none';
+                            document.querySelector('.confirmation-message').style.display = 'block';
+                            
+                            // Réinitialiser le formulaire et le bouton
+                            this.reset();
+                            btnText.style.display = 'inline';
+                            loader.style.display = 'none';
+                        }, 1500);
+                    });
+                </script>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-utensils"></i> Le Délice Africain
+                </div>
+                <div class="footer-links">
+                    <a href="#accueil" aria-label="Accueil">Accueil</a>
+                    <a href="#plats" aria-label="Nos Plats">Nos Plats</a>
+                    <a href="#apropos" aria-label="À propos">À propos</a>
+                    <a href="#contact" aria-label="Contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://facebook.com/le-delice-africain" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/le-delice-africain" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com/le-delice-africain" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2026 Le Délice Africain. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Script pour le menu mobile -->
+    <script>
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const nav = document.querySelector('nav');
+            const btn = document.querySelector('.mobile-menu-btn');
+            const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+            nav.classList.toggle('active');
+            btn.classList.toggle('active');
+            btn.setAttribute('aria-expanded', !isExpanded);
+            btn.setAttribute('aria-label', isExpanded ? 'Ouvrir le menu mobile' : 'Fermer le menu mobile');
+        });
+    </script>
+</body>
+
+</html>
