@@ -929,6 +929,49 @@ footer p {
     display: block;
 }
 
+/* ===== SIGNATURE VISUELLE : badge décoratif pour la galerie ===== */
+.section-galerie {
+    position: relative;
+}
+
+.signature-badge {
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+    background: rgba(255, 245, 230, 0.9);
+    color: #8F6824; /* couleur moutarde / signature */
+    border-radius: 999px;
+    padding: 10px 16px;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    font-weight: 600;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    transform: rotate(-8deg);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    z-index: 5;
+    user-select: none;
+}
+
+.signature-badge i {
+    font-size: 1.05rem;
+}
+
+.signature-badge:hover {
+    transform: rotate(-4deg) scale(1.03);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+
+/* Version mobile : plus petite, coin plus proche du bord */
+@media (max-width: 480px) {
+    .signature-badge {
+        right: 12px;
+        bottom: 12px;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}
+
 /* Style pour le bouton "Voir en grand" */
 #open-lightbox {
     margin-top: 20px;
