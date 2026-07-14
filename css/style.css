@@ -1002,6 +1002,38 @@ footer p {
     .lightbox-close { top: 10px; right: 10px; width: 40px; height: 40px; }
 }
 
+/* ===== MOBILE: scroll-snap vertical + animations pour la galerie ===== */
+@media (max-width: 768px) {
+    .galerie-viewport {
+        height: calc(100vh - 160px);
+        overflow-y: auto;
+        scroll-snap-type: y mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .galerie-carousel {
+        display: block;
+    }
+
+    .galerie-item {
+        min-height: 65vh;
+        scroll-snap-align: start;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 12px;
+        opacity: 0;
+        transform: translateX(-24px);
+        transition: transform 650ms cubic-bezier(.2,.9,.2,1), opacity 500ms ease;
+    }
+
+    .galerie-item.from-right { transform: translateX(24px); }
+
+    .galerie-item.in-view { opacity: 1; transform: translateX(0); }
+
+    .galerie-item img { border-radius: 8px; }
+}
+
 /* ===== SIGNATURE VISUELLE : badge décoratif pour la galerie ===== */
 .section-galerie {
     position: relative;

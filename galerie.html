@@ -37,7 +37,8 @@
                 <h1 id="galerie-heading" class="section-title">Galerie <span>Photos</span></h1>
                 <p class="subtitle">Quelques images de nos plats et de l'ambiance du restaurant.</p>
 
-                <div class="galerie-carousel" role="list">
+                <div class="galerie-viewport">
+                    <div class="galerie-carousel" role="list">
                     <div class="galerie-item" role="listitem">
                         <a href="images/Tilapia braisé.jfif" class="galerie-link" data-src="images/Tilapia braisé.jfif">
                             <img src="images/Tilapia braisé.jfif" alt="Tilapia braisé">
@@ -67,6 +68,7 @@
                         <a href="images/beignets-maison.jfif" class="galerie-link" data-src="images/beignets-maison.jfif">
                             <img src="images/beignets-maison.jfif" alt="Beignets maison">
                         </a>
+                    </div>
                     </div>
                 </div>
 
@@ -157,6 +159,27 @@
         document.addEventListener('keydown', function(e){
             if (e.key === 'Escape' && lightbox.style.display === 'flex') close();
         });
+    })();
+    </script>
+    <script>
+    (function(){
+        // Apparition alternée gauche/droite au scroll (mobile)
+        const items = document.querySelectorAll('.galerie-item');
+        items.forEach((it, i) => it.dataset.index = i);
+
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const idx = parseInt(el.dataset.index || '0', 10);
+                    el.classList.add('in-view');
+                    if (idx % 2 === 0) { el.classList.add('from-left'); el.classList.remove('from-right'); }
+                    else { el.classList.add('from-right'); el.classList.remove('from-left'); }
+                }
+            });
+        }, { threshold: 0.45 });
+
+        items.forEach(it => obs.observe(it));
     })();
     </script>
 </body>
