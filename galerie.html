@@ -39,32 +39,32 @@
 
                 <div class="galerie-carousel" role="list">
                     <div class="galerie-item" role="listitem">
-                        <a href="images/Tilapia braisé.jfif" target="_blank" rel="noopener noreferrer">
+                        <a href="images/Tilapia braisé.jfif" class="galerie-link" data-src="images/Tilapia braisé.jfif">
                             <img src="images/Tilapia braisé.jfif" alt="Tilapia braisé">
                         </a>
                     </div>
                     <div class="galerie-item" role="listitem">
-                        <a href="images/riz-alloco-viande.jfif" target="_blank" rel="noopener noreferrer">
+                        <a href="images/riz-alloco-viande.jfif" class="galerie-link" data-src="images/riz-alloco-viande.jfif">
                             <img src="images/riz-alloco-viande.jfif" alt="Riz alloco et viande">
                         </a>
                     </div>
                     <div class="galerie-item" role="listitem">
-                        <a href="images/poisson.jfif" target="_blank" rel="noopener noreferrer">
+                        <a href="images/poisson.jfif" class="galerie-link" data-src="images/poisson.jfif">
                             <img src="images/poisson.jfif" alt="Poisson braisé">
                         </a>
                     </div>
                     <div class="galerie-item" role="listitem">
-                        <a href="images/crêpes.jfif" target="_blank" rel="noopener noreferrer">
+                        <a href="images/crêpes.jfif" class="galerie-link" data-src="images/crêpes.jfif">
                             <img src="images/crêpes.jfif" alt="Crêpes">
                         </a>
                     </div>
                     <div class="galerie-item" role="listitem">
-                        <a href="images/desserts-variés.jfif" target="_blank" rel="noopener noreferrer">
+                        <a href="images/desserts-variés.jfif" class="galerie-link" data-src="images/desserts-variés.jfif">
                             <img src="images/desserts-variés.jfif" alt="Desserts variés">
                         </a>
                     </div>
                     <div class="galerie-item" role="listitem">
-                        <a href="images/beignets-maison.jfif" target="_blank" rel="noopener noreferrer">
+                        <a href="images/beignets-maison.jfif" class="galerie-link" data-src="images/beignets-maison.jfif">
                             <img src="images/beignets-maison.jfif" alt="Beignets maison">
                         </a>
                     </div>
@@ -100,6 +100,63 @@
         nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
         document.addEventListener('click', function(e){ if (!nav.contains(e.target) && !btn.contains(e.target)) closeMenu(); });
         document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeMenu(); });
+    })();
+    </script>
+    <!-- Lightbox modal -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true" style="display:none">
+        <button class="lightbox-close" aria-label="Fermer la vue image">×</button>
+        <div class="lightbox-inner">
+            <img src="" alt="" id="lightbox-img">
+            <p id="lightbox-caption" class="lightbox-caption"></p>
+        </div>
+    </div>
+
+    <script>
+    (function(){
+        const links = document.querySelectorAll('.galerie-link');
+        const lightbox = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightbox-img');
+        const lbCaption = document.getElementById('lightbox-caption');
+        const lbClose = document.querySelector('.lightbox-close');
+        let lastFocused = null;
+
+        function open(src, alt){
+            lastFocused = document.activeElement;
+            lbImg.src = src;
+            lbImg.alt = alt || '';
+            lbCaption.textContent = alt || '';
+            lightbox.style.display = 'flex';
+            lightbox.setAttribute('aria-hidden','false');
+            lbClose.focus();
+            document.body.style.overflow = 'hidden';
+        }
+
+        function close(){
+            lightbox.style.display = 'none';
+            lightbox.setAttribute('aria-hidden','true');
+            lbImg.src = '';
+            document.body.style.overflow = '';
+            if (lastFocused) lastFocused.focus();
+        }
+
+        links.forEach(link => {
+            link.addEventListener('click', function(e){
+                e.preventDefault();
+                const src = this.dataset.src || this.href;
+                const alt = this.querySelector('img')?.alt || '';
+                open(src, alt);
+            });
+        });
+
+        lbClose.addEventListener('click', close);
+
+        lightbox.addEventListener('click', function(e){
+            if (e.target === lightbox) close();
+        });
+
+        document.addEventListener('keydown', function(e){
+            if (e.key === 'Escape' && lightbox.style.display === 'flex') close();
+        });
     })();
     </script>
 </body>
