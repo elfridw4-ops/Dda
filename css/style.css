@@ -1007,14 +1007,17 @@ footer p {
     .galerie-viewport {
         height: calc(100vh - 160px);
         overflow-y: auto;
+        overflow-x: hidden; /* empêche la barre horizontale */
         scroll-snap-type: y mandatory;
         -webkit-overflow-scrolling: touch;
+        padding: 8px 0;
     }
 
     .galerie-carousel {
         display: block;
     }
 
+    /* Position initiale: images partiellement hors-écran à gauche/droite */
     .galerie-item {
         min-height: 65vh;
         scroll-snap-align: start;
@@ -1023,15 +1026,18 @@ footer p {
         justify-content: center;
         padding: 10px 12px;
         opacity: 0;
-        transform: translateX(-24px);
-        transition: transform 650ms cubic-bezier(.2,.9,.2,1), opacity 500ms ease;
+        transition: transform 700ms cubic-bezier(.2,.9,.2,1), opacity 500ms ease;
+        transform: translateX(0);
     }
 
-    .galerie-item.from-right { transform: translateX(24px); }
+    /* Définir l'offset initial en CSS plutôt que via JS pour éviter saut visuel */
+    .galerie-item:nth-child(odd) { transform: translateX(-50%); }
+    .galerie-item:nth-child(even) { transform: translateX(50%); }
 
+    /* Quand l'item est visible -> ramener au centre */
     .galerie-item.in-view { opacity: 1; transform: translateX(0); }
 
-    .galerie-item img { border-radius: 8px; }
+    .galerie-item img { border-radius: 8px; max-width: 100%; height: auto; }
 }
 
 /* ===== SIGNATURE VISUELLE : badge décoratif pour la galerie ===== */
