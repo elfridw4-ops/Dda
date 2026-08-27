@@ -4,13 +4,32 @@
 <head>
     <meta charset="UTF-8"> <!-- Encodage des caractères -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsivité -->
-    <meta name="description" content="Découvrez notre restaurant proposant des plats africains authentiques, préparés avec passion par notre chef Jean Dupont."> <!-- SEO -->
-    <title>Le Délice Africain - Restaurant de Cuisine Traditionnelle</title>
+    <meta name="description" content="Découvrez Le Délice Africain à Cotonou (Bénin), restaurant de cuisine traditionnelle béninoise et africaine orchestré par le Chef Marcel Dossou."> <!-- SEO -->
+    <title>Le Délice Africain - Restaurant de Cuisine Traditionnelle à Cotonou, Bénin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css"> <!-- Lien vers le CSS centralisé -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- Icônes Font Awesome -->
+
+    <!-- Schema.org JSON-LD Balisage Restaurant & FAQ (SEO Rich Results) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Le Délice Africain",
+      "image": "https://ledeliceafricain.com/images/le%20restaurant.jfif",
+      "servesCuisine": "Béninoise, Africaine",
+      "priceRange": "500-7000 XOF",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Rue de la Gastronomie",
+        "addressLocality": "Cotonou",
+        "addressCountry": "BJ"
+      },
+      "telephone": "+22996000000"
+    }
+    </script>
 </head>
 
 <body>
@@ -30,13 +49,13 @@
         <div class="container">
             <!-- Logo -->
             <a href="#accueil" class="logo" aria-label="Accueil - Le Délice Africain">
-                <i class="fas fa-utensils"></i> Le Délice Africain
+                <i class="fas fa-utensils"></i> <span translate="no">Le Délice Africain</span>
             </a>
             
             <!-- Barre de navigation -->
             <nav aria-label="Menu principal">
                 <a href="#accueil" aria-label="Accéder à la page d'accueil">Accueil</a>
-                <a href="#plats" aria-label="Voir nos plats">Nos Plats</a>
+                <a href="resto.html" aria-label="Voir notre menu">Notre Menu</a>
                 <a href="galerie.html" aria-label="Voir notre galerie photo">Galerie</a>
                 <a href="#apropos" aria-label="En savoir plus sur nous">À propos</a>
                 <a href="#contact" aria-label="Nous contacter">Contact</a>
@@ -51,14 +70,49 @@
     </header>
 
     <main>
-        <!-- Bannière d'accueil -->
+        <!-- Bannière d'accueil (Hero de persuasion D2) -->
         <section id="accueil" class="banner" aria-labelledby="banner-heading">
             <div class="container">
-                <h1 id="banner-heading">Bienvenue au <span>Délice Africain</span></h1>
-                <p>Découvrez les saveurs authentiques de l'Afrique dans un cadre chaleureux et convivial.</p>
+                <h1 id="banner-heading">Savourez la véritable cuisine africaine fait maison à <span translate="no">Cotonou</span></h1>
+                <p>Des recettes traditionnelles du Bénin braisées au feu de bois, préparées avec des ingrédients frais du marché local par le Chef Marcel Dossou.</p>
                 <div class="banner-cta">
-                    <a href="#contact" class="btn" aria-label="Réserver une table">Réserver une table</a>
-                    <a href="resto.html" class="btn btn-secondary" aria-label="Voir notre menu">Voir notre menu</a>
+                    <a href="#contact" class="btn" aria-label="Réserver une table à Cotonou">Réserver une table</a>
+                    <a href="resto.html" class="btn btn-secondary" aria-label="Découvrir notre menu">Découvrir notre menu</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ruban Réassurances & Confiance (D2 Section Logos/Confiance) -->
+        <section class="trust-ribbon" aria-label="Garanties et Réassurances">
+            <div class="container trust-grid">
+                <div class="trust-item"><i class="fas fa-award"></i> Chef Marcel Dossou — Passionné depuis 2020</div>
+                <div class="trust-item"><i class="fas fa-leaf"></i> Ingrédients 100% frais du marché de Cotonou</div>
+                <div class="trust-item"><i class="fas fa-motorcycle"></i> Livraison express à chaud en < 45 min</div>
+                <div class="trust-item"><i class="fas fa-star"></i> 4.9 / 5 étoiles (+500 gourmets satisfaits)</div>
+            </div>
+        </section>
+
+        <!-- Proposition de Valeur : 3 Bénéfices Piliers (D2) -->
+        <section class="section-valeur" aria-labelledby="valeur-heading">
+            <div class="container">
+                <h2 id="valeur-heading" class="section-title">Pourquoi choisir <span translate="no">Le Délice Africain</span> ?</h2>
+                <p class="subtitle">L'alliance unique de la tradition culinaire béninoise et du confort moderne.</p>
+                <div class="valeur-grid">
+                    <div class="valeur-card">
+                        <div class="valeur-icon"><i class="fas fa-carrot"></i></div>
+                        <h3>Produits Frais du Bénin</h3>
+                        <p>Des viandes, poissons et légumes d'une fraîcheur irréprochable sélectionnés chaque matin chez nos maraîchers locaux à Cotonou.</p>
+                    </div>
+                    <div class="valeur-card">
+                        <div class="valeur-icon"><i class="fas fa-fire"></i></div>
+                        <h3>Cuisson au Feu de Bois</h3>
+                        <p>La saveur inimitable des braises aromatiques pour des poissons et poulets sauvages tendres et dorés à la perfection.</p>
+                    </div>
+                    <div class="valeur-card">
+                        <div class="valeur-icon"><i class="fas fa-heart"></i></div>
+                        <h3>Accueil & Cadre Chaleureux</h3>
+                        <p>Un service attentionné orchestré par Sênami Kpadonou dans une ambiance béninoise familiale et conviviale.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -112,8 +166,8 @@
                     <!-- Carte 1 -->
                     <div class="carte" role="article" aria-label="Poulet Braisé">
                         <div class="carte-image">
-                            <img src="images/Tilapia braisé.jfif" alt="Poulet braisé avec alloco, servi dans une assiette">
-                            <span class="prix" aria-label="Prix : 5000 FCFA">5000 FCFA</span>
+                            <img src="images/riz-alloco-viande.jfif" alt="Poulet braisé avec alloco, servi dans une assiette" width="300" height="220" loading="lazy">
+                            <span class="prix" aria-label="Prix : 5000 FCFA">5000&nbsp;FCFA</span>
                         </div>
                         <div class="carte-content">
                             <h3>Poulet Braisé</h3>
@@ -125,8 +179,8 @@
                     <!-- Carte 2 -->
                     <div class="carte" role="article" aria-label="Poisson Braisé">
                         <div class="carte-image">
-                            <img src="images/poisson.jfif" alt="Poisson braisé avec épices locales, servi dans une assiette">
-                            <span class="prix" aria-label="Prix : 6000 FCFA">6000 FCFA</span>
+                            <img src="images/poisson.jfif" alt="Poisson braisé avec épices locales, servi dans une assiette" width="300" height="220" loading="lazy">
+                            <span class="prix" aria-label="Prix : 6000 FCFA">6000&nbsp;FCFA</span>
                         </div>
                         <div class="carte-content">
                             <h3>Poisson Braisé</h3>
@@ -138,8 +192,8 @@
                     <!-- Carte 3 (ajoutée pour équilibrer la grille) -->
                     <div class="carte" role="article" aria-label="Riz Gras">
                         <div class="carte-image">
-                            <img src="images/1.jfif" alt="Riz gras avec viande et légumes, servi dans une assiette">
-                            <span class="prix" aria-label="Prix : 3500 FCFA">3500 FCFA</span>
+                            <img src="images/1.jfif" alt="Riz gras avec viande et légumes, servi dans une assiette" width="300" height="220" loading="lazy">
+                            <span class="prix" aria-label="Prix : 3500 FCFA">3500&nbsp;FCFA</span>
                         </div>
                         <div class="carte-content">
                             <h3>Riz Gras</h3>
@@ -156,13 +210,13 @@
             <div class="container">
                 <div class="apropos-content">
                     <div class="apropos-image">
-                        <img src="images/chef.jfif" alt="Jean Dupont, chef cuisinier et fondateur du restaurant">
+                        <img src="images/chef.jfif" alt="Chef Marcel Dossou, chef cuisinier et fondateur du restaurant" width="400" height="400" loading="lazy">
                     </div>
                     <div class="apropos-text">
                         <h2 id="apropos-heading">À propos de <span>nous</span></h2>
-                        <p>Le Délice Africain est un restaurant dédié à la cuisine africaine authentique. Fondé en 2020 par Jean Dupont, notre chef passionné, nous mettons un point d'honneur à utiliser des ingrédients frais et locaux pour préparer des plats savoureux et équilibrés.</p>
-                        <p>Notre mission est de faire découvrir les richesses culinaires de l'Afrique à travers des recettes traditionnelles revisitées avec modernité.</p>
-                        <a href="#contact" class="btn" aria-label="Contacter Jean Dupont">Contactez-nous</a>
+                        <p><span translate="no">Le Délice Africain</span> est un restaurant incontournable à Cotonou dédié à la cuisine béninoise et africaine authentique. Fondé en 2020 par le Chef Marcel Dossou, notre établissement valorise les trésors culinaires du Bénin en préparant chaque plat avec passion et ingrédients locaux.</p>
+                        <p>Notre mission est de sublimer les recettes traditionnelles dans un cadre moderne et accueillant.</p>
+                        <a href="#contact" class="btn" aria-label="Contacter le Chef Marcel Dossou">Contactez-nous</a>
                     </div>
                 </div>
             </div>
@@ -172,17 +226,17 @@
         <section id="equipe" class="section-equipe" aria-labelledby="equipe-heading">
             <div class="container">
                 <h2 id="equipe-heading">Notre <span>Équipe</span></h2>
-                <p class="subtitle">Rencontrez les passionnés qui font vivre Le Délice Africain.</p>
+                <p class="subtitle">Rencontrez les passionnés qui font vivre Le Délice Africain à Cotonou.</p>
                 
                 <div class="equipe-container">
                     <div class="membre">
-                        <img src="images/chef.jfif" alt="Jean Dupont, Chef cuisinier">
-                        <h3>Jean Dupont</h3>
+                        <img src="images/chef.jfif" alt="Chef Marcel Dossou, Chef cuisinier" width="150" height="150" loading="lazy">
+                        <h3>Chef Marcel Dossou</h3>
                         <p>Chef cuisinier et fondateur</p>
                     </div>
                     <div class="membre">
-                        <img src="images/marie.jfif" alt="Marie Kouamé, Serveuse">
-                        <h3>Marie Kouamé</h3>
+                        <img src="images/marie.jfif" alt="Sênami Kpadonou, Responsable de salle" width="150" height="150" loading="lazy">
+                        <h3>Sênami Kpadonou</h3>
                         <p>Responsable de salle</p>
                     </div>
                 </div>
@@ -193,21 +247,55 @@
         <section class="section-testimonials" aria-labelledby="testimonials-heading">
             <div class="container">
                 <h2 id="testimonials-heading">Ce que nos <span>clients</span> disent</h2>
-                <p class="subtitle">Découvrez les avis de nos clients satisfaits.</p>
+                <p class="subtitle">Découvrez les avis des fins gourmets de Cotonou.</p>
                 
                 <div class="testimonials-container">
                     <div class="testimonial">
-                        <img src="images/client-1.jfif" alt="Client satisfait">
+                        <img src="images/client-1.jfif" alt="Client satisfait" width="80" height="80" loading="lazy">
                         <h3>Koffi Yao</h3>
                         <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p>"Un délice ! Les plats sont toujours frais et savoureux. Je recommande vivement."</p>
+                        <p>«&nbsp;Un régal absolu à Cotonou ! Le poulet braisé du Chef Marcel est d'une tendreté incroyable. Je recommande vivement.&nbsp;»</p>
                     </div>
                     <div class="testimonial">
-                        <img src="images/client-2.jfif" alt="Cliente satisfaite">
+                        <img src="images/client-2.jfif" alt="Cliente satisfaite" width="80" height="80" loading="lazy">
                         <h3>Aminata Diop</h3>
                         <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p>"L'ambiance est chaleureuse et le service impeccable. J'adore leurs plats végétariens."</p>
+                        <p>«&nbsp;L'ambiance est chaleureuse et le service par Sênami est impeccable. Le Plat du Roi est extraordinaire.&nbsp;»</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section FAQ d'Accueil (D2 FAQ courte) -->
+        <section class="section-faq-home" aria-labelledby="faq-home-heading">
+            <div class="container">
+                <h2 id="faq-home-heading" class="section-title">Foire aux <span>Questions</span></h2>
+                <p class="subtitle">Des réponses claires à vos questions les plus fréquentes.</p>
+                <div class="faq-accordion">
+                    <details class="faq-item">
+                        <summary class="faq-question"><strong>Doit-on réserver sa table à l'avance à Cotonou ?</strong></summary>
+                        <div class="faq-answer">
+                            <p>La réservation est fortement conseillée pour les soirs de week-end et les déjeuners d'affaires afin de vous assurer la meilleure table.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question"><strong>Livrez-vous à domicile sur Cotonou et Calavi ?</strong></summary>
+                        <div class="faq-answer">
+                            <p>Oui, nous livrons sur tout Cotonou, Akpakpa, Cadjehoun, Haie Vive et Abomey-Calavi en moins de 45 minutes dans nos sacs isothermes à chaud.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section CTA Final de Clôture (D2 CTA Final) -->
+        <section class="section-cta-final" aria-labelledby="cta-final-heading">
+            <div class="container cta-final-box">
+                <h2 id="cta-final-heading">Envie d'un voyage gastronomique au cœur des saveurs du Bénin ?</h2>
+                <p>Réservez votre table dès maintenant ou commandez directement vos plats préférés à emporter.</p>
+                <div class="cta-final-buttons">
+                    <a href="#contact" class="btn" aria-label="Réserver ma table maintenant à Cotonou">Réserver ma table maintenant</a>
+                    <a href="resto.html" class="btn btn-secondary" aria-label="Consulter notre menu complet">Voir le menu complet</a>
                 </div>
             </div>
         </section>
@@ -280,7 +368,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <i class="fas fa-utensils"></i> Le Délice Africain
+                    <i class="fas fa-utensils"></i> <span translate="no">Le Délice Africain</span>
                 </div>
                 <div class="footer-links">
                     <a href="#accueil" aria-label="Accueil">Accueil</a>
@@ -294,7 +382,7 @@
                     <a href="https://twitter.com/le-delice-africain" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
-            <p class="copyright">&copy; 2026 Le Délice Africain. Tous droits réservés.</p>
+            <p class="copyright">&copy; 2026 <span translate="no">Le Délice Africain</span>. Tous droits réservés.</p>
         </div>
     </footer>
 
