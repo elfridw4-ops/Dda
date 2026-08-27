@@ -2151,6 +2151,157 @@ footer p {
     }
 }
 
+/* ===== OPTIMISATION MOBILE DÉDIÉE (AGENTS.md Section VIII) ===== */
+
+/* Fix absolu pour l'image du chef : zéro compression/déformation */
+.apropos-image img,
+.membre img,
+.chef-img,
+#apropos .apropos-image img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto;
+}
+
+.membre img,
+.profil img {
+    width: 140px;
+    height: 140px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+    /* Paddings des sections réduits pour éliminer les espaces perdus */
+    .hero-asymmetric,
+    .section-valeur,
+    .section-bento-valeur,
+    .section-plats,
+    .section-apropos,
+    .section-equipe,
+    .section-testimonials,
+    .section-faq-home,
+    .section-cta-final,
+    .section-contact,
+    .section-horaires {
+        padding: 40px 0 !important;
+    }
+
+    /* Hero Asymétrique Mobile */
+    .hero-grid-2col {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .hero-eyebrow {
+        margin: 0 auto 15px;
+    }
+
+    .hero-title-main {
+        font-size: 2rem !important;
+        line-height: 1.2;
+    }
+
+    .hero-description-main {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+
+    .hero-cta-group {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .hero-cta-group .btn {
+        width: 100%;
+        justify-content: center;
+        min-height: 48px; /* Cible tactile confortable W3C */
+    }
+
+    /* Neutralisation des ombres et bordures superposées sur mobile (Section VIII) */
+    .hero-main-img-wrapper {
+        transform: none !important;
+        border-width: 2px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.12) !important;
+    }
+
+    .hero-float-badge {
+        position: relative !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        margin-top: 15px;
+        width: 100%;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.06) !important;
+        border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    /* Adaptation Bento & Cards sur Mobile */
+    .bento-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px;
+        margin-top: 25px;
+    }
+
+    .bento-card {
+        padding: 22px 18px !important;
+        border-radius: 16px;
+        box-shadow: none !important; /* Neutralisation ombres lourdes sur mobile */
+        border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    /* Ingrédients & Chef Section Mobile */
+    .apropos-content {
+        flex-direction: column;
+        gap: 25px;
+        text-align: center;
+    }
+
+    .apropos-text {
+        text-align: center !important;
+        min-width: auto;
+    }
+
+    .apropos-text h2 {
+        font-size: 1.8rem !important;
+    }
+
+    /* Formulaires & Inputs Mobile (Anti-zoom auto iOS) */
+    .form-group input,
+    .form-group textarea,
+    .quantity-selector input {
+        font-size: 16px !important; /* Empêche le zoom auto sur smartphone iOS */
+        padding: 14px;
+        min-height: 48px;
+    }
+
+    /* Cibles tactiles FAQ Accordéon */
+    .faq-question {
+        padding: 6px 0;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Featured Banner resto.html sur Mobile */
+    .bento-card-large[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        padding: 24px !important;
+        gap: 20px;
+    }
+}
+
 /* ===== PREFERS-REDUCED-MOTION (Section 2 & 10) ===== */
 @media (prefers-reduced-motion: reduce) {
     *,
