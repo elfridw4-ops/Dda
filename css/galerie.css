@@ -8,6 +8,21 @@
     -webkit-overflow-scrolling: touch; /* Pour un défilement fluide sur mobile */
 }
 
+@media (max-width: 768px) {
+    .galerie-carousel {
+        display: block;
+        overflow-x: hidden;
+        padding: 0;
+    }
+
+    .galerie-item {
+        width: 92%;
+        max-width: 560px;
+        margin: 0 auto 24px;
+        min-height: 55vh;
+    }
+}
+
 .galerie-carousel::-webkit-scrollbar {
     height: 8px;
 }

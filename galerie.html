@@ -163,23 +163,43 @@
     </script>
     <script>
     (function(){
-        // Apparition alternée gauche/droite au scroll (mobile)
-        const items = document.querySelectorAll('.galerie-item');
-        items.forEach((it, i) => it.dataset.index = i);
+        const viewport = document.querySelector('.galerie-viewport');
+        const items = Array.from(document.querySelectorAll('.galerie-item'));
+        if (!viewport || !items.length) return;
 
-        const obs = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const el = entry.target;
-                    const idx = parseInt(el.dataset.index || '0', 10);
-                    el.classList.add('in-view');
-                    if (idx % 2 === 0) { el.classList.add('from-left'); el.classList.remove('from-right'); }
-                    else { el.classList.add('from-right'); el.classList.remove('from-left'); }
-                }
+        const updateTransforms = () => {
+            const viewportRect = viewport.getBoundingClientRect();
+            const revealStart = viewportRect.height * 0.8;
+            const revealEnd = viewportRect.height * 0.15;
+
+            items.forEach((item, index) => {
+                const rect = item.getBoundingClientRect();
+                const itemCenter = rect.top + rect.height / 2;
+                const progress = 1 - ((itemCenter - viewportRect.top - revealEnd) / (revealStart - revealEnd));
+                const normalized = Math.min(Math.max(progress, 0), 1);
+                const side = index % 2 === 0 ? -1 : 1;
+                const offset = side * (100 - normalized * 100);
+                const maxDeg = 8; // rotation amplitude
+                const rotation = side * (1 - normalized) * maxDeg; // from +/-maxDeg -> 0
+                item.style.transform = `translateX(${offset}%) rotate(${rotation}deg)`;
+                item.style.opacity = 0.2 + normalized * 0.8;
             });
-        }, { threshold: 0.45 });
+        };
 
-        items.forEach(it => obs.observe(it));
+        let ticking = false;
+        const onScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    updateTransforms();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        };
+
+        viewport.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        updateTransforms();
     })();
     </script>
 </body>

@@ -1008,36 +1008,48 @@ footer p {
         height: calc(100vh - 160px);
         overflow-y: auto;
         overflow-x: hidden; /* empêche la barre horizontale */
-        scroll-snap-type: y mandatory;
         -webkit-overflow-scrolling: touch;
         padding: 8px 0;
     }
 
     .galerie-carousel {
         display: block;
+        overflow-x: hidden;
+        padding: 0;
     }
 
-    /* Position initiale: images partiellement hors-écran à gauche/droite */
     .galerie-item {
-        min-height: 65vh;
-        scroll-snap-align: start;
+        width: 92%;
+        max-width: 600px;
+        margin: 0 auto 24px;
+        min-height: 55vh;
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 10px 12px;
         opacity: 0;
-        transition: transform 700ms cubic-bezier(.2,.9,.2,1), opacity 500ms ease;
+        will-change: transform, opacity;
         transform: translateX(0);
+        transform-origin: center center;
     }
 
-    /* Définir l'offset initial en CSS plutôt que via JS pour éviter saut visuel */
-    .galerie-item:nth-child(odd) { transform: translateX(-50%); }
-    .galerie-item:nth-child(even) { transform: translateX(50%); }
+    .galerie-item:nth-child(odd) {
+        --start-offset: -100%;
+    }
+    .galerie-item:nth-child(even) {
+        --start-offset: 100%;
+    }
 
-    /* Quand l'item est visible -> ramener au centre */
-    .galerie-item.in-view { opacity: 1; transform: translateX(0); }
+    .galerie-item[data-progress] {
+        opacity: 1;
+    }
 
-    .galerie-item img { border-radius: 8px; max-width: 100%; height: auto; }
+    .galerie-item img {
+        border-radius: 16px;
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
 }
 
 /* ===== SIGNATURE VISUELLE : badge décoratif pour la galerie ===== */
