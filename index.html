@@ -12,9 +12,12 @@
   <meta property="og:description" content="L'authenticité des saveurs ancestrales et la noblesse de la cuisine au feu de bois à Cotonou.">
   <meta property="og:type" content="restaurant.restaurant">
   
-  <!-- Polices Google & Icônes FontAwesome -->
+  <!-- Polices Google : Fraunces (Display) + Work Sans (Body) + JetBrains Mono (Prix) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=JetBrains+Mono:wght@500;600;700&family=Work+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+  
+  <!-- Icônes FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Feuille de Style Maîtresse -->
@@ -31,84 +34,121 @@
         <div class="logo-emblem">DA</div>
         <div class="logo-text">
           <span class="logo-brand">Le Délice Africain</span>
-          <span class="logo-tagline">Haute Gastronomie Béninoise</span>
+          <span class="logo-tagline">Gastronomie Béninoise</span>
         </div>
       </a>
 
       <nav class="nav-menu" id="navMenu" aria-label="Navigation principale">
-        <a href="#accueil" class="nav-link active">Accueil</a>
-        <a href="#piliers" class="nav-link">Notre Maison</a>
-        <a href="#specialites" class="nav-link">Nos Plats Phares</a>
+        <a href="index.html" class="nav-link active">Accueil</a>
+        <a href="#ambiance" class="nav-link">Ambiance</a>
+        <a href="#signature" class="nav-link">Plats Signatures</a>
+        <a href="#experience" class="nav-link">L'Expérience</a>
         <a href="#chef" class="nav-link">Le Chef</a>
-        <a href="#temoignages" class="nav-link">Avis</a>
-        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="resto.html" class="nav-link">La Carte</a>
+        <a href="galerie.html" class="nav-link">Galerie</a>
+        <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
       <div class="nav-actions">
-        <a href="tel:+22996000000" class="btn btn-secondary" style="padding: 0.65rem 1.25rem; font-size: 0.88rem;">
-          <i class="fa-solid fa-phone"></i> +229 96 00 00 00
+        <a href="tel:+22996000000" class="btn btn-secondary btn-sm" aria-label="Appeler le restaurant">
+          <i class="fa-solid fa-phone"></i>
+          <span class="text-mono">+229 96 00 00 00</span>
         </a>
-        <a href="#specialites" class="btn btn-primary">
-          <span>Commander</span>
+        <a href="#reservation" class="btn btn-primary btn-sm">
+          <span>Réserver</span>
           <i class="fa-solid fa-arrow-right"></i>
         </a>
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Ouvrir le menu">
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Ouvrir le menu mobile">
           <i class="fa-solid fa-bars"></i>
         </button>
       </div>
     </div>
   </header>
 
-  <main id="accueil">
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <div class="logo-link">
+        <div class="logo-emblem">DA</div>
+        <div class="logo-text">
+          <span class="logo-brand">Le Délice Africain</span>
+        </div>
+      </div>
+      <button class="drawer-close" id="drawerClose" aria-label="Fermer le menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <nav class="drawer-nav">
+      <a href="index.html" class="nav-link">Accueil</a>
+      <a href="#ambiance" class="nav-link">Ambiance & Cadre</a>
+      <a href="#signature" class="nav-link">Plats Signatures</a>
+      <a href="#experience" class="nav-link">L'Expérience Culinaire</a>
+      <a href="#chef" class="nav-link">Le Chef Marcel Dossou</a>
+      <a href="resto.html" class="nav-link">La Carte Complète</a>
+      <a href="galerie.html" class="nav-link">Galerie Photo</a>
+      <a href="#avis" class="nav-link">Avis Convives</a>
+      <a href="#contact" class="nav-link">Contact & Réservation</a>
+    </nav>
+    <div style="margin-top: auto; display: flex; flex-direction: column; gap: 1rem;">
+      <a href="resto.html" class="btn btn-mustard full-width">
+        <i class="fa-solid fa-utensils"></i> Découvrir le Menu
+      </a>
+      <a href="tel:+22996000000" class="btn btn-secondary full-width">
+        <i class="fa-solid fa-phone"></i> +229 96 00 00 00
+      </a>
+    </div>
+  </div>
+
+  <main>
     <!-- =========================================================================
          2. SECTION HERO — IMMERSION CULINAIRE
          ========================================================================= -->
-    <section class="section hero">
+    <section class="section hero" id="accueil">
       <div class="container hero-grid">
         <div class="hero-content">
-          <div class="hero-badge">
+          <div class="hero-badge badge-tag terracotta">
             <i class="fa-solid fa-fire-flame-curved"></i>
-            <span>Cuisine Ancestrale au Feu de Bois</span>
+            <span>Cuisine Ancestrale aux Braises Naturelles</span>
           </div>
           <h1 class="hero-title">
-            L'Élégance de la Gastronomie <span class="text-gold-gradient">Béninoise</span> à Votre Table.
+            L'Élégance de la Gastronomie <span class="text-mustard font-italic-accent">Béninoise</span> à Votre Table.
           </h1>
           <p class="hero-description">
-            Sublimez vos déjeuners et dîners à Cotonou avec des mets signatures marinés 12 heures et délicatement braisés aux braises naturelles par le Chef Marcel Dossou.
+            Sublimez vos déjeuners et dîners à Cotonou avec des mets marinés 12 heures et délicatement braisés au feu de bois d'essences sélectionnées par le Chef Marcel Dossou.
           </p>
           <div class="hero-cta-group">
-            <a href="#specialites" class="btn btn-primary">
+            <a href="resto.html" class="btn btn-primary">
               <i class="fa-solid fa-utensils"></i>
-              <span>Découvrir la Carte Royale</span>
+              <span>Explorer la Carte Royale</span>
             </a>
-            <a href="#chef" class="btn btn-secondary">
-              <span>L'Histoire du Chef</span>
-              <i class="fa-solid fa-chevron-right"></i>
+            <a href="#ambiance" class="btn btn-secondary">
+              <span>Découvrir l'Ambiance</span>
+              <i class="fa-solid fa-chevron-down"></i>
             </a>
           </div>
 
-          <div class="hero-social-proof">
-            <div class="customer-avatars">
-              <img src="images/client-1.jfif" alt="Client satisfait Le Délice Africain">
-              <img src="images/client-2.jfif" alt="Client régulier Cotonou">
+          <div class="hero-proof">
+            <div class="avatars-group">
+              <img src="images/client-1.jfif" alt="Client régulier Koffi Yao">
+              <img src="images/client-2.jfif" alt="Cliente régulière Aminata Diop">
               <img src="images/chef.jfif" alt="Chef Marcel Dossou">
             </div>
-            <div class="proof-text">
-              <div class="stars-rating">
+            <div class="proof-content">
+              <div class="stars">
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
               </div>
-              <span class="proof-caption"><strong>4.9 / 5</strong> selon plus de 500 convives à Cotonou</span>
+              <p><strong class="text-mono" style="color: var(--text-main);">4.9 / 5</strong> selon plus de 500 convives à Cotonou</p>
             </div>
           </div>
         </div>
 
-        <div class="hero-visual-wrap">
-          <div class="hero-image-card">
-            <img src="images/plat-du-roi.jfif" alt="Plat du Roi - Spécialité Signature Le Délice Africain">
+        <div class="hero-visual">
+          <div class="hero-image-wrapper">
+            <img src="images/plat-du-roi.jfif" alt="Plat du Roi Signature — Le Délice Africain">
           </div>
           <div class="hero-floating-card">
             <div class="floating-icon">
@@ -125,66 +165,78 @@
     </section>
 
     <!-- =========================================================================
-         3. BENTO GRID — LES GRANDS PILIERS DE LA MAISON
+         3. SECTION AMBIANCE (NOUVEAU) — SIGNATURE BOGOLAN SVG LINE-DRAW
          ========================================================================= -->
-    <section class="section bento-section" id="piliers">
+    <section class="section ambiance-section" id="ambiance">
       <div class="container">
-        <div class="section-title-wrap">
-          <span class="badge-tag">Excellence & Tradition</span>
-          <h2 class="section-title">Pourquoi Choisir Le Délice Africain ?</h2>
-          <p class="section-subtitle">Une expérience sensorielle complète qui réunit le savoir-faire ancestral béninois et les exigences de la haute gastronomie contemporaine.</p>
+        <div class="section-header">
+          <span class="badge-tag">Atmosphère & Patrimoine</span>
+          <h2 class="section-title">L'Ambiance de Notre Maison</h2>
+          <p class="section-subtitle">Une immersion sensorielle au cœur des traditions béninoises, où le parfum du bois ardent s'harmonise avec un décor feutré et raffiné.</p>
         </div>
 
-        <div class="bento-grid">
-          <!-- Carte Bento 1 : Feu de Bois (Large) -->
-          <div class="bento-card col-8 featured-card">
-            <div class="bento-card-header">
-              <div class="bento-icon">
+        <div class="ambiance-grid">
+          <!-- Bogolan Animated Geometric SVG Pattern -->
+          <div class="bogolan-draw-wrapper">
+            <svg class="bogolan-svg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Motif géométrique traditionnel Bogolan">
+              <!-- Motif Bogolan / Adinkra de prestige -->
+              <rect x="20" y="20" width="360" height="360" rx="20" class="bogolan-path" stroke-width="2.5"/>
+              <rect x="50" y="50" width="300" height="300" rx="14" class="bogolan-path-terracotta" stroke-width="2"/>
+              
+              <!-- Losanges et trames royales intérieures -->
+              <polygon points="200,70 330,200 200,330 70,200" class="bogolan-path" stroke-width="2.5"/>
+              <polygon points="200,105 295,200 200,295 105,200" class="bogolan-path-terracotta" stroke-width="2"/>
+              
+              <!-- Croix et symboles centraux -->
+              <line x1="200" y1="20" x2="200" y2="380" class="bogolan-path" stroke-width="2"/>
+              <line x1="20" y1="200" x2="380" y2="200" class="bogolan-path" stroke-width="2"/>
+              
+              <circle cx="200" cy="200" r="45" class="bogolan-path" stroke-width="2.5"/>
+              <circle cx="200" cy="200" r="22" class="bogolan-path-terracotta" stroke-width="2"/>
+              
+              <!-- Symboles d'angle Adinkra -->
+              <path d="M 70 70 L 110 110 M 110 70 L 70 110" class="bogolan-path" stroke-width="2"/>
+              <path d="M 290 70 L 330 110 M 330 70 L 290 110" class="bogolan-path" stroke-width="2"/>
+              <path d="M 70 290 L 110 330 M 110 290 L 70 330" class="bogolan-path" stroke-width="2"/>
+              <path d="M 290 290 L 330 330 M 330 290 L 290 330" class="bogolan-path" stroke-width="2"/>
+            </svg>
+            <span style="font-size: 0.8125rem; color: var(--accent-mustard); margin-top: 1rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">
+              <i class="fa-solid fa-gem"></i> Motif Signature Bogolan
+            </span>
+          </div>
+
+          <!-- Feature Cards Grid -->
+          <div class="ambiance-cards-grid">
+            <div class="ambiance-feature mustard">
+              <div class="feature-icon-box">
                 <i class="fa-solid fa-fire"></i>
               </div>
-              <h3>Maîtrise Authentique des Braises</h3>
-              <p>Chaque pièce de viande et de poisson est cuite lentement au feu de bois d'essences sélectionnées, conférant cette saveur fumée inimitable et cette tendreté incomparable célébrée dans tout le Bénin.</p>
+              <h3>Maîtrise des Braises</h3>
+              <p>Cuisson lente aux braises naturelles de bois dur sélectionnés, apportant un parfum fumé inimitable et une tendreté absolue à chaque morceau.</p>
             </div>
-            <div style="margin-top: 1.5rem; display: flex; gap: 1.5rem; flex-wrap: wrap;">
-              <span style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: #D4AF37;">
-                <i class="fa-solid fa-check"></i> Marinade 12h aux aromates locaux
-              </span>
-              <span style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: #D4AF37;">
-                <i class="fa-solid fa-check"></i> Sans additifs industriels
-              </span>
-            </div>
-          </div>
 
-          <!-- Carte Bento 2 : Fraîcheur Botanique -->
-          <div class="bento-card col-4">
-            <div>
-              <div class="bento-icon" style="background: var(--accent-light); color: var(--accent-color);">
-                <i class="fa-solid fa-leaf"></i>
-              </div>
-              <h3>Circuit Court 100% Frais</h3>
-              <p>Légumes du marché de Dantokpa, poissons pêchés du jour en lagune et volailles de nos éleveurs partenaires locaux.</p>
-            </div>
-          </div>
-
-          <!-- Carte Bento 3 : Service Royal & Cadre -->
-          <div class="bento-card col-6">
-            <div>
-              <div class="bento-icon">
+            <div class="ambiance-feature">
+              <div class="feature-icon-box">
                 <i class="fa-solid fa-champagne-glasses"></i>
               </div>
-              <h3>Service Royal en Salle</h3>
-              <p>Sous la direction bienveillante de Sênami Kpadonou, profitez d'un accueil feutré, chaleureux et raffiné à notre adresse de Cotonou.</p>
+              <h3>Accueil & Service Royal</h3>
+              <p>Sous l'égide de Sênami Kpadonou, profitez d'une hospitalité béninoise chaleureuse dans un cadre intime, feutré et climatisé.</p>
             </div>
-          </div>
 
-          <!-- Carte Bento 4 : Livraison Express -->
-          <div class="bento-card col-6">
-            <div>
-              <div class="bento-icon">
-                <i class="fa-solid fa-truck-fast"></i>
+            <div class="ambiance-feature">
+              <div class="feature-icon-box">
+                <i class="fa-solid fa-leaf"></i>
               </div>
-              <h3>Livraison Chaude &lt; 45 Min</h3>
-              <p>Conditionnement sous sacs isothermes biodégradables : Cotonou, Akpakpa, Cadjehoun, Haie Vive et Calavi dégustent leurs plats fumants.</p>
+              <h3>Circuit Court & Fraîcheur</h3>
+              <p>Approvisionnement quotidien au marché de Dantokpa et auprès des pêcheurs de lagune pour des produits d'une pure fraîcheur.</p>
+            </div>
+
+            <div class="ambiance-feature mustard">
+              <div class="feature-icon-box">
+                <i class="fa-solid fa-motorcycle"></i>
+              </div>
+              <h3>Livraison Express &lt; 45 Min</h3>
+              <p>Conditionnement sous sacs isothermes haute rétention thermique pour Cotonou, Akpakpa, Cadjehoun, Haie Vive et Calavi.</p>
             </div>
           </div>
         </div>
@@ -194,281 +246,512 @@
     <!-- =========================================================================
          4. SÉLECTION DES PLATS SIGNATURES (CARTE ROYALE)
          ========================================================================= -->
-    <section class="section" id="specialites">
+    <section class="section" id="signature">
       <div class="container">
-        <div class="section-title-wrap">
-          <span class="badge-tag">Carte Gastronomique</span>
-          <h2 class="section-title">Nos Spécialités Culinaires</h2>
-          <p class="section-subtitle">Chaque recette est un hommage vibrant à notre patrimoine culinaire, préparée minute avec une précision d'orfèvre.</p>
+        <div class="section-header">
+          <span class="badge-tag terracotta">Nos Incontournables</span>
+          <h2 class="section-title">Les Plats Phares de la Maison</h2>
+          <p class="section-subtitle">Chaque recette est le fruit d'une marinade de 12 heures aux épices et aromates béninois, sublimée par notre cuisson ancestrale.</p>
         </div>
 
         <div class="dishes-grid">
           <!-- Plat 1 : Plat du Roi -->
-          <article class="dish-card">
-            <div class="dish-image-wrap">
-              <img src="images/plat-du-roi.jfif" alt="Plat du Roi signature">
-              <span class="dish-badge-overlay"><i class="fa-solid fa-crown"></i> Signature</span>
+          <div class="dish-card featured-royal">
+            <div class="dish-media">
+              <img src="images/plat-du-roi.jfif" alt="Plat du Roi — Spécialité Signature">
+              <span class="dish-badge royal"><i class="fa-solid fa-crown"></i> Plat Signature</span>
             </div>
             <div class="dish-body">
-              <span class="dish-category">Plat Royal • 1 à 2 Personnes</span>
-              <h3 class="dish-title">Le Plat du Roi</h3>
-              <p class="dish-desc">Assortiment royal d'un demi-poulet fermier et Tilapia frais de lagune braisés au feu de bois. Servi avec Attiéké ou Alloco au choix.</p>
-              <div class="dish-footer">
+              <div class="dish-header">
+                <h3 class="dish-title">Plat du Roi Signature</h3>
                 <span class="dish-price">7 000 FCFA</span>
-                <a href="tel:+22996000000" class="dish-order-btn" title="Commander ce plat" aria-label="Commander Le Plat du Roi">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
+              </div>
+              <p class="dish-desc">
+                Demi-poulet fermier et tilapia frais de lagune marinés 12 heures dans nos condiments secrets puis braisés au feu de bois. Portion royale 1 à 2 personnes.
+              </p>
+              <div class="dish-tags">
+                <span class="dish-tag">Feu de bois</span>
+                <span class="dish-tag">Attiéké / Alloco</span>
+                <span class="dish-tag">Marinade 12h</span>
+              </div>
+              <div class="dish-footer">
+                <button class="btn btn-mustard btn-sm btn-order-trigger" data-dish-name="Plat du Roi Signature" data-dish-price="7 000 FCFA">
+                  <i class="fa-solid fa-bag-shopping"></i> Commander
+                </button>
+                <a href="resto.html" class="btn btn-secondary btn-sm">Détails</a>
               </div>
             </div>
-          </article>
+          </div>
 
           <!-- Plat 2 : Poulet Braisé Alloco -->
-          <article class="dish-card">
-            <div class="dish-image-wrap">
+          <div class="dish-card">
+            <div class="dish-media">
               <img src="images/riz-alloco-viande.jfif" alt="Poulet Braisé Alloco">
-              <span class="dish-badge-overlay"><i class="fa-solid fa-fire"></i> Braisé</span>
+              <span class="dish-badge"><i class="fa-solid fa-star"></i> Bestseller</span>
             </div>
             <div class="dish-body">
-              <span class="dish-category">Volaille Braisée</span>
-              <h3 class="dish-title">Poulet Braisé Alloco</h3>
-              <p class="dish-desc">Poulet fermier mariné aux aromates traditionnels, braisé sur charbon ardent, accompagné d'alloco doré et de sauce piquante maison.</p>
-              <div class="dish-footer">
+              <div class="dish-header">
+                <h3 class="dish-title">Poulet Braisé Alloco</h3>
                 <span class="dish-price">5 000 FCFA</span>
-                <a href="tel:+22996000000" class="dish-order-btn" title="Commander ce plat" aria-label="Commander le Poulet Braisé Alloco">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
+              </div>
+              <p class="dish-desc">
+                Volaille fermière assaisonnée au poivre de Penja et herbes béninoises, servie avec des bananes plantains dorées croustillantes et sauce tomate piquante.
+              </p>
+              <div class="dish-tags">
+                <span class="dish-tag">Poulet fermier</span>
+                <span class="dish-tag">Alloco doré</span>
+                <span class="dish-tag">Sauce maison</span>
+              </div>
+              <div class="dish-footer">
+                <button class="btn btn-primary btn-sm btn-order-trigger" data-dish-name="Poulet Braisé Alloco" data-dish-price="5 000 FCFA">
+                  <i class="fa-solid fa-bag-shopping"></i> Commander
+                </button>
+                <a href="resto.html" class="btn btn-secondary btn-sm">Détails</a>
               </div>
             </div>
-          </article>
+          </div>
 
-          <!-- Plat 3 : Tilapia Braisé de Lagune -->
-          <article class="dish-card">
-            <div class="dish-image-wrap">
-              <img src="images/Tilapia braisé.jfif" alt="Tilapia Braisé">
-              <span class="dish-badge-overlay"><i class="fa-solid fa-water"></i> Pêche Fraîche</span>
+          <!-- Plat 3 : Tilapia Braisé -->
+          <div class="dish-card">
+            <div class="dish-media">
+              <img src="images/Tilapia braisé.jfif" alt="Tilapia Braisé aux aromates">
+              <span class="dish-badge"><i class="fa-solid fa-water"></i> Pêche du jour</span>
             </div>
             <div class="dish-body">
-              <span class="dish-category">Poissons & Grillades</span>
-              <h3 class="dish-title">Tilapia Braisé aux Épices</h3>
-              <p class="dish-desc">Poisson Tilapia de lagune mariné aux herbes béninoises et grillé à la flamme, servi avec garniture au choix et piment doux.</p>
-              <div class="dish-footer">
+              <div class="dish-header">
+                <h3 class="dish-title">Tilapia Braisé de Lagune</h3>
                 <span class="dish-price">5 000 FCFA</span>
-                <a href="tel:+22996000000" class="dish-order-btn" title="Commander ce plat" aria-label="Commander le Tilapia Braisé">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
+              </div>
+              <p class="dish-desc">
+                Poisson entier frais de la lagune de Nokoué, délicatement grillé aux herbes fraîches et servi avec votre choix d'Attiéké ou Alloco.
+              </p>
+              <div class="dish-tags">
+                <span class="dish-tag">Poisson frais</span>
+                <span class="dish-tag">Attiéké</span>
+                <span class="dish-tag">Épices béninoises</span>
+              </div>
+              <div class="dish-footer">
+                <button class="btn btn-primary btn-sm btn-order-trigger" data-dish-name="Tilapia Braisé de Lagune" data-dish-price="5 000 FCFA">
+                  <i class="fa-solid fa-bag-shopping"></i> Commander
+                </button>
+                <a href="resto.html" class="btn btn-secondary btn-sm">Détails</a>
               </div>
             </div>
-          </article>
+          </div>
 
-          <!-- Plat 4 : Riz Gras Béninois -->
-          <article class="dish-card">
-            <div class="dish-image-wrap">
+          <!-- Plat 4 : Poisson Braisé Royale -->
+          <div class="dish-card">
+            <div class="dish-media">
+              <img src="images/poisson.jfif" alt="Poisson Braisé Royale">
+            </div>
+            <div class="dish-body">
+              <div class="dish-header">
+                <h3 class="dish-title">Poisson Braisé Royale</h3>
+                <span class="dish-price">6 000 FCFA</span>
+              </div>
+              <p class="dish-desc">
+                Grande pièce de poisson noble grillée avec poivrons croquants, oignons confits aux braises et sauce pimentée préparée à la commande.
+              </p>
+              <div class="dish-tags">
+                <span class="dish-tag">Pièce noble</span>
+                <span class="dish-tag">Poivrons sautés</span>
+              </div>
+              <div class="dish-footer">
+                <button class="btn btn-primary btn-sm btn-order-trigger" data-dish-name="Poisson Braisé Royale" data-dish-price="6 000 FCFA">
+                  <i class="fa-solid fa-bag-shopping"></i> Commander
+                </button>
+                <a href="resto.html" class="btn btn-secondary btn-sm">Détails</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Plat 5 : Riz Gras Béninois -->
+          <div class="dish-card">
+            <div class="dish-media">
               <img src="images/1.jfif" alt="Riz Gras Béninois">
             </div>
             <div class="dish-body">
-              <span class="dish-category">Spécialité Terroir</span>
-              <h3 class="dish-title">Riz Gras Béninois Parfumé</h3>
-              <p class="dish-desc">Riz lentement mijoté au jus corsé de viandes aromatiques, légumes croquants du marché et concentré de tomates savoureuses.</p>
-              <div class="dish-footer">
+              <div class="dish-header">
+                <h3 class="dish-title">Riz Gras Traditionnel</h3>
                 <span class="dish-price">3 500 FCFA</span>
-                <a href="tel:+22996000000" class="dish-order-btn" title="Commander ce plat" aria-label="Commander le Riz Gras Béninois">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
               </div>
-            </div>
-          </article>
-
-          <!-- Plat 5 : Pastels Croustillants -->
-          <article class="dish-card">
-            <div class="dish-image-wrap">
-              <img src="images/pastels-senegalais.jfif" alt="Pastels Croustillants">
-            </div>
-            <div class="dish-body">
-              <span class="dish-category">Entrée Gourmande</span>
-              <h3 class="dish-title">Pastels Croustillants Maison</h3>
-              <p class="dish-desc">Délicieux chaussons dorés et croustillants, farcis au poisson épicé et servis avec un coulis pimenté aux tomates fraîches.</p>
+              <p class="dish-desc">
+                Riz mijoté dans le bouillon riche de viandes et légumes maraîchers avec sauce tomate réduite, légumes fondants et aromates du terroir.
+              </p>
+              <div class="dish-tags">
+                <span class="dish-tag">Tradition</span>
+                <span class="dish-tag">Bouillon parfumé</span>
+              </div>
               <div class="dish-footer">
-                <span class="dish-price">500 FCFA</span>
-                <a href="tel:+22996000000" class="dish-order-btn" title="Commander ce plat" aria-label="Commander les Pastels Croustillants">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
+                <button class="btn btn-primary btn-sm btn-order-trigger" data-dish-name="Riz Gras Traditionnel" data-dish-price="3 500 FCFA">
+                  <i class="fa-solid fa-bag-shopping"></i> Commander
+                </button>
+                <a href="resto.html" class="btn btn-secondary btn-sm">Détails</a>
               </div>
             </div>
-          </article>
-
-          <!-- Plat 6 : Nectar de Bissap Maison -->
-          <article class="dish-card">
-            <div class="dish-image-wrap">
-              <img src="images/bissap.jfif" alt="Nectar de Bissap">
-              <span class="dish-badge-overlay" style="background: rgba(140, 45, 25, 0.85);"><i class="fa-solid fa-glass-water"></i> Boisson Fraîche</span>
-            </div>
-            <div class="dish-body">
-              <span class="dish-category">Boisson & Rafraîchissement</span>
-              <h3 class="dish-title">Nectar de Bissap Pur</h3>
-              <p class="dish-desc">Infusion artisanale de calices d'hibiscus pourpre, subtilement parfumée aux feuilles de menthe fraîche et fleur d'oranger.</p>
-              <div class="dish-footer">
-                <span class="dish-price">1 000 FCFA</span>
-                <a href="tel:+22996000000" class="dish-order-btn" title="Commander ce plat" aria-label="Commander le Nectar de Bissap">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================================================
-         5. SECTION CHEF & PHILOSOPHIE DU FEU DE BOIS
-         ========================================================================= -->
-    <section class="section chef-section" id="chef">
-      <div class="container chef-grid">
-        <div class="chef-visual">
-          <div class="chef-portrait-frame">
-            <img src="images/chef.jfif" alt="Portrait du Chef Marcel Dossou, Fondateur du Délice Africain">
           </div>
-          <div class="chef-quote-badge">
-            <p>« La cuisine n'est pas qu'un plat, c'est l'histoire sacrée de nos ancêtres transmise par la flamme. »</p>
-            <span>Chef Marcel Dossou</span>
+
+          <!-- Plat 6 : Nectar de Bissap & Desserts -->
+          <div class="dish-card">
+            <div class="dish-media">
+              <img src="images/desserts-variés.jfif" alt="Assortiment de Desserts Pâtissiers">
+              <span class="dish-badge"><i class="fa-solid fa-cookie"></i> Douceurs</span>
+            </div>
+            <div class="dish-body">
+              <div class="dish-header">
+                <h3 class="dish-title">Assortiment Desserts</h3>
+                <span class="dish-price">3 500 FCFA</span>
+              </div>
+              <p class="dish-desc">
+                Sélection raffinée de gâteaux aux fruits du Bénin, douceurs vanillées et gourmandises artisanales pour clore votre festin royal.
+              </p>
+              <div class="dish-tags">
+                <span class="dish-tag">Fait maison</span>
+                <span class="dish-tag">Fruits locaux</span>
+              </div>
+              <div class="dish-footer">
+                <button class="btn btn-primary btn-sm btn-order-trigger" data-dish-name="Assortiment de Desserts Pâtissiers" data-dish-price="3 500 FCFA">
+                  <i class="fa-solid fa-bag-shopping"></i> Commander
+                </button>
+                <a href="resto.html" class="btn btn-secondary btn-sm">Détails</a>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="chef-content">
-          <span class="badge-tag">L'Âme de la Maison</span>
-          <h2>Chef Marcel Dossou, L'Artisan des Braises</h2>
-          <p class="lead">Gardien passionné des recettes traditionnelles et pionnier d'une gastronomie béninoise exaltée.</p>
-          <p>
-            Depuis 2020, le Chef Marcel Dossou réinvente l'art culinaire à Cotonou en plaçant le feu de bois et les épices natives au centre de chaque création. Formé au contact des maîtres du terroir, il sélectionne rigoureusement chaque ingrédient pour garantir un équilibre parfait entre puissance aromatique et finesse en bouche.
-          </p>
-          
-          <div class="chef-highlights">
-            <div class="highlight-item">
-              <div class="highlight-icon"><i class="fa-solid fa-award"></i></div>
-              <div>
-                <h5>Recettes Ancestrales</h5>
-                <p>Respect scrupuleux des techniques traditionnelles au feu de bois.</p>
-              </div>
-            </div>
-            <div class="highlight-item">
-              <div class="highlight-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
-              <div>
-                <h5>Service de Prestige</h5>
-                <p>Hospitalité chaleureuse orchestrée par Sênami Kpadonou.</p>
-              </div>
-            </div>
-          </div>
-
-          <a href="tel:+22996000000" class="btn btn-primary">
-            <i class="fa-solid fa-calendar-check"></i>
-            <span>Réserver une Table à Cotonou</span>
+        <div style="text-align: center; margin-top: 3.5rem;">
+          <a href="resto.html" class="btn btn-mustard">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Consulter la Carte Complète (9 Plats & Boissons)</span>
           </a>
         </div>
       </div>
     </section>
 
     <!-- =========================================================================
-         6. PREUVE SOCIALE & AVIS CLIENTS VÉRIFIÉS
+         5. SECTION L'EXPÉRIENCE CULINAIRE (NOUVEAU)
          ========================================================================= -->
-    <section class="section reviews-section" id="temoignages">
+    <section class="section" id="experience" style="background: #231B16;">
       <div class="container">
-        <div class="section-title-wrap">
-          <span class="badge-tag">Témoignages & Confiance</span>
-          <h2 class="section-title">Ce que Disent nos Convives</h2>
-          <p class="section-subtitle">Une réputation bâtie jour après jour grâce à la constance de notre cuisine et à l'excellence de notre accueil.</p>
+        <div class="section-header">
+          <span class="badge-tag">Savoir-Faire & Rituels</span>
+          <h2 class="section-title">L'Expérience du Délice Africain</h2>
+          <p class="section-subtitle">Chaque assiette servie à notre table respecte un protocole culinaire minutieux hérité des grandes cours royales béninoises.</p>
         </div>
 
-        <div class="reviews-grid">
-          <!-- Avis 1 : Koffi Yao -->
-          <div class="review-card">
-            <div class="review-header">
-              <img src="images/client-1.jfif" alt="Photo de Koffi Yao" class="review-avatar">
-              <div class="review-meta">
-                <h4>Koffi Yao</h4>
-                <span class="review-verified"><i class="fa-solid fa-circle-check"></i> Convive vérifié</span>
-              </div>
+        <div class="experience-grid">
+          <div class="experience-mosaic">
+            <div class="mosaic-item tall">
+              <img src="images/décoration intérieur restaurant.jfif" alt="Cadre et décoration intérieure du restaurant">
             </div>
-            <div class="review-stars">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+            <div class="mosaic-item">
+              <img src="images/pastels-senegalais.jfif" alt="Pastels et entrées croustillantes">
             </div>
-            <p>« Un régal absolu à Cotonou ! Le poulet braisé du Chef Marcel est d'une tendreté incroyable. Une adresse incontournable que je recommande les yeux fermés. »</p>
+            <div class="mosaic-item">
+              <img src="images/bissap.jfif" alt="Nectar de Bissap frais">
+            </div>
           </div>
 
-          <!-- Avis 2 : Aminata Diop -->
-          <div class="review-card">
-            <div class="review-header">
-              <img src="images/client-2.jfif" alt="Photo de Aminata Diop" class="review-avatar">
-              <div class="review-meta">
-                <h4>Aminata Diop</h4>
-                <span class="review-verified"><i class="fa-solid fa-circle-check"></i> Convive vérifiée</span>
+          <div class="timeline-steps">
+            <div class="timeline-step">
+              <div class="step-num">01</div>
+              <div class="step-content">
+                <h3>Sélection Rigoureuse à Dantokpa</h3>
+                <p>Tous les matins à l'aube, notre équipe sélectionne les légumes les plus frais, les épices brutes et les poissons pêchés du jour.</p>
               </div>
             </div>
-            <div class="review-stars">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+
+            <div class="timeline-step">
+              <div class="step-num">02</div>
+              <div class="step-content">
+                <h3>Marinade Royale de 12 Heures</h3>
+                <p>Ail violet, gingembre sauvage, poivre vert de Penja et herbes aromatiques sont pilés au mortier pour imprégner chaque fibre de viande et poisson.</p>
+              </div>
             </div>
-            <p>« L'ambiance est feutrée et le service de Sênami est d'un professionnalisme exemplaire. Le Plat du Roi est tout simplement exceptionnel. »</p>
+
+            <div class="timeline-step">
+              <div class="step-num">03</div>
+              <div class="step-content">
+                <h3>Braise au Feu de Bois d'Acacia</h3>
+                <p>Une cuisson maîtrisée au degré près sur lit de braises ardentes, sans contact direct avec les flammes pour préserver les sucs.</p>
+              </div>
+            </div>
+
+            <div class="timeline-step">
+              <div class="step-num">04</div>
+              <div class="step-content">
+                <h3>Service en Salle & Livraison Chaude</h3>
+                <p>Dégustation feutrée sous l'attention de Sênami Kpadonou ou livraison express en sac isotherme en moins de 45 minutes chez vous.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- =========================================================================
-         7. FOIRE AUX QUESTIONS (FAQ) ACCORDION
+         6. LE CHEF ET L'HISTOIRE DE LA MAISON
          ========================================================================= -->
-    <section class="section faq-section" id="faq">
+    <section class="section chef-section" id="chef">
       <div class="container">
-        <div class="section-title-wrap">
-          <span class="badge-tag">Questions Fréquentes</span>
-          <h2 class="section-title">Tout Savoir sur Notre Établissement</h2>
-          <p class="section-subtitle">Horaires, livraison, réservations et modalités de paiement à Cotonou.</p>
+        <div class="chef-grid">
+          <div class="chef-visual">
+            <div class="chef-img-card">
+              <img src="images/chef.jfif" alt="Chef Marcel Dossou, Fondateur et Maître Rôtisseur">
+            </div>
+            <div class="chef-badge-floating">
+              <h4 style="color: var(--accent-mustard); font-family: var(--font-display); margin-bottom: 0.25rem;">Chef Marcel Dossou</h4>
+              <p style="font-size: 0.8125rem; color: var(--text-muted);">Maître Cuisinier & Gardien des Saveurs Ancestrales Béninoises</p>
+            </div>
+          </div>
+
+          <div class="chef-content">
+            <span class="badge-tag">L'Âme de la Maison</span>
+            <h2 class="section-title">Une Passion pour le Patrimoine Culinaire Béninois</h2>
+            <blockquote class="chef-quote">
+              « La cuisine au feu de bois n'est pas une simple cuisson : c'est un dialogue sacré entre la flamme, l'aromate et la mémoire de nos ancêtres. »
+            </blockquote>
+            <p class="chef-bio">
+              Fondé par le Chef Marcel Dossou, <em>Le Délice Africain</em> est né d'une ambition claire : hisser la cuisine béninoise traditionnelle au rang des plus grandes expériences gastronomiques du continent. Chaque marinade, chaque découpe et chaque braisage est exécuté selon des techniques ancestrales précises.
+            </p>
+            <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 2rem;">
+              <div>
+                <span class="text-mono" style="font-size: 2rem; font-weight: 700; color: var(--accent-mustard);">12h</span>
+                <p style="font-size: 0.8125rem; color: var(--text-muted); text-transform: uppercase;">Temps de marinade</p>
+              </div>
+              <div>
+                <span class="text-mono" style="font-size: 2rem; font-weight: 700; color: var(--accent-mustard);">100%</span>
+                <p style="font-size: 0.8125rem; color: var(--text-muted); text-transform: uppercase;">Braises naturelles</p>
+              </div>
+              <div>
+                <span class="text-mono" style="font-size: 2rem; font-weight: 700; color: var(--accent-mustard);">&lt; 45min</span>
+                <p style="font-size: 0.8125rem; color: var(--text-muted); text-transform: uppercase;">Délai de livraison</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         7. TÉMOIGNAGES & AVIS CONVIVES
+         ========================================================================= -->
+    <section class="section" id="avis">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-tag terracotta">Preuve Sociale</span>
+          <h2 class="section-title">Ce que Disent Nos Convives</h2>
+          <p class="section-subtitle">Plus de 500 habitués et voyageurs d'affaires nous accordent leur confiance pour leurs moments précieux à Cotonou.</p>
         </div>
 
-        <div class="faq-container">
-          <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div>
+              <div class="testimonial-stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p class="testimonial-text">
+                « Un régal absolu à Cotonou ! Le poulet braisé du Chef Marcel est d'une tendreté incroyable avec ce parfum de braise inimitable. Une adresse incontournable pour les amateurs de vraie cuisine béninoise. »
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <img src="images/client-1.jfif" alt="Koffi Yao" class="author-avatar">
+              <div class="author-info">
+                <h4>Koffi Yao</h4>
+                <span><i class="fa-solid fa-circle-check"></i> Client vérifié • Cotonou</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div>
+              <div class="testimonial-stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p class="testimonial-text">
+                « L'ambiance est feutrée et le service de Sênami est d'un professionnalisme exemplaire. Le Plat du Roi est exceptionnel, les portions sont généreuses et le piment doux à part est parfait ! »
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <img src="images/client-2.jfif" alt="Aminata Diop" class="author-avatar">
+              <div class="author-info">
+                <h4>Aminata Diop</h4>
+                <span><i class="fa-solid fa-circle-check"></i> Cliente vérifiée • Haie Vive</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         8. FAQ INTERACTIVE
+         ========================================================================= -->
+    <section class="section" id="faq" style="background: #221A15;">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-tag">Questions Fréquentes</span>
+          <h2 class="section-title">Tout Ce Que Vous Devez Savoir</h2>
+          <p class="section-subtitle">Réservations, délais de livraison, emballages et paiements acceptés.</p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item active">
+            <button class="faq-question" type="button">
               <span>Faut-il réserver sa table à l'avance à Cotonou ?</span>
-              <i class="fa-solid fa-chevron-down faq-icon"></i>
+              <div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
             </button>
             <div class="faq-answer">
-              <p>La réservation est vivement recommandée pour les soirs de week-end et les déjeuners d'affaires afin de garantir votre table au sein de notre salle feutrée.</p>
+              <p>La réservation est vivement recommandée pour les soirs de week-end et déjeuners d'affaires afin de vous garantir une table privilégiée dans notre salle climatisée feutrée.</p>
             </div>
           </div>
 
           <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
+            <button class="faq-question" type="button">
               <span>Livrez-vous à domicile sur Cotonou et Calavi ?</span>
-              <i class="fa-solid fa-chevron-down faq-icon"></i>
+              <div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
             </button>
             <div class="faq-answer">
-              <p>Oui ! Nous livrons sur tout Cotonou, Akpakpa, Cadjehoun, Haie Vive et Abomey-Calavi en moins de 45 minutes sous sac isotherme scellé pour une dégustation à chaud.</p>
+              <p>Oui, nous livrons sur tout Cotonou, Akpakpa, Cadjehoun, Haie Vive et Abomey-Calavi en moins de 45 minutes sous sac isotherme scellé chaud.</p>
             </div>
           </div>
 
           <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
-              <span>Comment le plat est-il conservé pendant le trajet ?</span>
-              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            <button class="faq-question" type="button">
+              <span>Comment le plat est-il conservé pendant la livraison ?</span>
+              <div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
             </button>
             <div class="faq-answer">
-              <p>Nos emballages isothermes écologiques et biodégradables préservent les plats à haute température et conservent tout le croustillant de l'alloco et du poisson jusqu'à votre porte.</p>
+              <p>Nos emballages isothermes écologiques et biodégradables préservent les plats à haute température et conservent tout le croustillant de l'alloco et la tendreté des braises jusqu'à votre porte.</p>
             </div>
           </div>
 
           <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
+            <button class="faq-question" type="button">
               <span>Quels sont les moyens de paiement acceptés ?</span>
-              <i class="fa-solid fa-chevron-down faq-icon"></i>
+              <div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
             </button>
             <div class="faq-answer">
-              <p>Nous acceptons le paiement en espèces à la livraison ainsi que les règlements Mobile Money (MTN Mobile Money, Moov Money et Wave).</p>
+              <p>Nous acceptons les espèces à la livraison ainsi que les paiements par Mobile Money (MTN Mobile Money, Moov Money, Wave) pour une transaction fluide et sécurisée.</p>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         9. CONTACT & RÉSERVATION DE TABLE
+         ========================================================================= -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-tag terracotta">Votre Table Vous Attend</span>
+          <h2 class="section-title">Réservez Votre Moment Gastronomique</h2>
+          <p class="section-subtitle">Privatisations, déjeuners d'affaires ou dîners intimistes : nous organisons votre réception avec le plus grand soin.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Infos Maison -->
+          <div class="contact-info-card">
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="contact-details">
+                <h4>Adresse & Quartier</h4>
+                <p>123 Rue de la Gastronomie, Cotonou, Bénin</p>
+                <span style="font-size: 0.8125rem; color: var(--accent-mustard);"><i class="fa-solid fa-car"></i> Parking privé surveillé</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+              <div class="contact-details">
+                <h4>Téléphone & WhatsApp</h4>
+                <p><a href="tel:+22996000000" class="text-mono">+229 96 00 00 00</a></p>
+                <span style="font-size: 0.8125rem; color: var(--text-dim);">Ligne directe service de salle</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
+              <div class="contact-details">
+                <h4>Horaires d'Ouverture</h4>
+                <p><strong>Lundi — Jeudi :</strong> 10h00 - 22h00</p>
+                <p><strong>Vendredi — Samedi :</strong> 10h00 - 23h00</p>
+                <p><strong>Dimanche :</strong> 12h00 - 21h00</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div class="contact-details">
+                <h4>Courriel & Relations</h4>
+                <p><a href="mailto:contact@ledeliceafricain.com">contact@ledeliceafricain.com</a></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulaire de Réservation -->
+          <div class="reservation-form-card" id="reservation">
+            <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-main);">Demande de Réservation</h3>
+            <form id="tableReservationForm">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="resName" class="form-label">Nom complet *</label>
+                  <input type="text" id="resName" class="form-input" placeholder="Ex: Jean Houndété" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="resPhone" class="form-label">Téléphone / WhatsApp *</label>
+                  <input type="tel" id="resPhone" class="form-input" placeholder="+229 97 00 00 00" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="resDate" class="form-label">Date souhaitée *</label>
+                  <input type="date" id="resDate" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="resTime" class="form-label">Heure d'arrivée *</label>
+                  <select id="resTime" class="form-select" required>
+                    <option value="12:00">12h00 (Déjeuner)</option>
+                    <option value="13:00">13h00 (Déjeuner)</option>
+                    <option value="19:30">19h30 (Dîner)</option>
+                    <option value="20:30">20h30 (Dîner)</option>
+                    <option value="21:30">21h30 (Dîner)</option>
+                  </select>
+                </div>
+
+                <div class="form-group full-width">
+                  <label for="resGuests" class="form-label">Nombre de personnes *</label>
+                  <select id="resGuests" class="form-select" required>
+                    <option value="1">1 Personne</option>
+                    <option value="2" selected>2 Personnes (Table intime)</option>
+                    <option value="4">4 Personnes (Famille / Amis)</option>
+                    <option value="6">6 Personnes</option>
+                    <option value="8+">8+ Personnes (Grand groupe / Événement)</option>
+                  </select>
+                </div>
+
+                <div class="form-group full-width">
+                  <label for="resNotes" class="form-label">Remarques ou préférences culinaires</label>
+                  <textarea id="resNotes" class="form-textarea" placeholder="Occasion spéciale, allergies, choix de placement..."></textarea>
+                </div>
+
+                <div class="form-group full-width" style="margin-top: 1rem;">
+                  <button type="submit" class="btn btn-mustard full-width">
+                    <i class="fa-brands fa-whatsapp"></i> Confirmer via WhatsApp
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -476,130 +759,132 @@
   </main>
 
   <!-- =========================================================================
-       8. PIED DE PAGE HAUT DE GAMME
+       10. PIED DE PAGE AVEC MINI BOGOLAN
        ========================================================================= -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+          <div class="logo-link">
             <div class="logo-emblem">DA</div>
-            <h3 style="margin-bottom: 0;">Le Délice Africain</h3>
+            <div class="logo-text">
+              <span class="logo-brand">Le Délice Africain</span>
+              <span class="logo-tagline">Haute Gastronomie Béninoise</span>
+            </div>
           </div>
           <p>
-            Haute gastronomie béninoise et cuisson traditionnelle au feu de bois. Une alliance noble entre l'héritage de nos terroirs et le confort d'un service d'exception.
+            L'authenticité des recettes ancestrales béninoises associées à la noblesse de la cuisine au feu de bois. À déguster en salle à Cotonou ou en livraison express.
           </p>
-          <div style="display: flex; gap: 1rem;">
-            <a href="#" aria-label="Facebook" style="color: var(--secondary-color); font-size: 1.25rem;"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#" aria-label="Instagram" style="color: var(--secondary-color); font-size: 1.25rem;"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://wa.me/22996000000" aria-label="WhatsApp" style="color: var(--secondary-color); font-size: 1.25rem;"><i class="fa-brands fa-whatsapp"></i></a>
+          <!-- Mini Bogolan Line-draw Footer Motif -->
+          <svg class="footer-mini-bogolan" viewBox="0 0 160 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="15" x2="40" y2="15" stroke="var(--accent-mustard)" stroke-width="1.5"/>
+            <polygon points="55,15 80,5 105,15 80,25" stroke="var(--accent-mustard)" stroke-width="1.5" fill="none"/>
+            <circle cx="80" cy="15" r="4" fill="var(--accent-terracotta)"/>
+            <line x1="120" y1="15" x2="160" y2="15" stroke="var(--accent-mustard)" stroke-width="1.5"/>
+          </svg>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Navigation</h4>
+          <div class="footer-links">
+            <a href="index.html">Accueil</a>
+            <a href="resto.html">La Carte & Menus</a>
+            <a href="galerie.html">Galerie Photos</a>
+            <a href="#chef">Le Chef Marcel Dossou</a>
+            <a href="#contact">Réservations</a>
           </div>
         </div>
 
-        <div class="footer-col">
-          <h4>Navigation</h4>
-          <ul class="footer-links">
-            <li><a href="#accueil">Accueil</a></li>
-            <li><a href="#piliers">Notre Maison</a></li>
-            <li><a href="#specialites">Carte & Plats Phares</a></li>
-            <li><a href="#chef">Le Chef Marcel</a></li>
-            <li><a href="#temoignages">Avis Clients</a></li>
-            <li><a href="#faq">Foire aux Questions</a></li>
-          </ul>
+        <div>
+          <h4 class="footer-title">Spécialités</h4>
+          <div class="footer-links">
+            <a href="resto.html">Plat du Roi Signature</a>
+            <a href="resto.html">Poulet Braisé Alloco</a>
+            <a href="resto.html">Tilapia de Lagune</a>
+            <a href="resto.html">Poisson Braisé Royale</a>
+            <a href="resto.html">Nectar de Bissap</a>
+          </div>
         </div>
 
-        <div class="footer-col">
-          <h4>Horaires</h4>
-          <ul class="footer-links" style="color: #ADA09B; font-size: 0.92rem;">
-            <li style="margin-bottom: 0.6rem;"><strong>Lun — Jeu :</strong><br>10h00 — 22h00</li>
-            <li style="margin-bottom: 0.6rem;"><strong>Ven — Sam :</strong><br>10h00 — 23h00</li>
-            <li><strong>Dimanche :</strong><br>12h00 — 21h00</li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Coordonnées</h4>
-          <ul class="footer-contact">
-            <li>
-              <i class="fa-solid fa-location-dot"></i>
-              <span>123 Rue de la Gastronomie, Cotonou, Bénin</span>
-            </li>
-            <li>
-              <i class="fa-solid fa-phone"></i>
-              <span>+229 96 00 00 00</span>
-            </li>
-            <li>
-              <i class="fa-solid fa-envelope"></i>
-              <span>contact@ledeliceafricain.com</span>
-            </li>
-            <li>
-              <i class="fa-solid fa-money-bill-wave"></i>
-              <span>Espèces & Mobile Money (MTN, Moov, Wave)</span>
-            </li>
-          </ul>
+        <div>
+          <h4 class="footer-title">Contact Rapide</h4>
+          <div class="footer-links">
+            <p style="color: var(--text-muted); font-size: 0.9375rem;"><i class="fa-solid fa-location-dot text-mustard"></i> Cotonou, Bénin</p>
+            <p style="color: var(--text-muted); font-size: 0.9375rem;"><i class="fa-solid fa-phone text-mustard"></i> <a href="tel:+22996000000" class="text-mono">+229 96 00 00 00</a></p>
+            <p style="color: var(--text-muted); font-size: 0.9375rem;"><i class="fa-brands fa-whatsapp text-mustard"></i> Commande express WhatsApp</p>
+          </div>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 Le Délice Africain. Tous droits réservés. Cotonou, Bénin.</p>
-        <p>Site conçu dans le respect des normes d'accessibilité et de performance.</p>
+        <p>&copy; 2026 Le Délice Africain. Tous droits réservés. Cotonou, République du Bénin.</p>
+        <p>Design & Gastronomie au Feu de Bois.</p>
       </div>
     </div>
   </footer>
 
-  <!-- =========================================================================
-       9. SCRIPTS D'INTERACTIVITÉ ULTRA-LÉGERS & ACCESSIBLES
-       ========================================================================= -->
-  <script>
-    // 1. Navigation Header Scrolled effect
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 40) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
+  <!-- Modal Commande Express WhatsApp -->
+  <div class="modal-backdrop" id="orderModal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" aria-label="Fermer la modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div style="margin-bottom: 1.5rem;">
+        <span class="badge-tag terracotta">Commande Rapide</span>
+        <h3 id="modalDishName" style="font-size: 1.5rem; margin-top: 0.5rem; color: var(--text-main);">Plat du Roi Signature</h3>
+        <span id="modalDishPrice" class="text-mono" style="color: var(--accent-mustard); font-weight: 700; font-size: 1.25rem;">7 000 FCFA</span>
+      </div>
 
-    // 2. Menu Mobile Drawer Toggle
-    const mobileToggle = document.getElementById('mobileToggle');
-    const navMenu = document.getElementById('navMenu');
-    if (mobileToggle && navMenu) {
-      mobileToggle.addEventListener('click', () => {
-        const isOpen = navMenu.classList.toggle('open');
-        mobileToggle.setAttribute('aria-expanded', isOpen);
-        mobileToggle.querySelector('i').className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-      });
-
-      // Fermer le menu lors du clic sur un lien
-      navMenu.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-          navMenu.classList.remove('open');
-          mobileToggle.querySelector('i').className = 'fa-solid fa-bars';
-        });
-      });
-    }
-
-    // 3. FAQ Accordion Interactif
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-      const button = item.querySelector('.faq-question');
-      button.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
+      <form id="orderDishForm">
+        <input type="hidden" id="hiddenDishInput" value="Plat du Roi Signature">
         
-        // Fermer les autres items
-        faqItems.forEach(otherItem => {
-          otherItem.classList.remove('active');
-          otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-        });
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label for="orderSide" class="form-label">Choix de l'accompagnement *</label>
+          <select id="orderSide" class="form-select" required>
+            <option value="Alloco (Banane plantain mûre dorée)">Alloco (Banane plantain mûre dorée)</option>
+            <option value="Attiéké traditionnel frais">Attiéké traditionnel frais</option>
+            <option value="Riz Gras parfumé maison">Riz Gras parfumé maison</option>
+            <option value="Frites d'igname croustillantes">Frites d'igname croustillantes</option>
+          </select>
+        </div>
 
-        // Toggle l'item cliqué
-        if (!isActive) {
-          item.classList.add('active');
-          button.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-  </script>
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label for="orderSpice" class="form-label">Niveau de piment *</label>
+          <select id="orderSpice" class="form-select" required>
+            <option value="Piment doux à part (Recommandé)">Piment doux à part (Recommandé)</option>
+            <option value="Sans piment">Sans piment (Doux)</option>
+            <option value="Piment fort traditionnel">Piment fort traditionnel</option>
+          </select>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label for="orderCustomerName" class="form-label">Votre nom *</label>
+          <input type="text" id="orderCustomerName" class="form-input" placeholder="Ex: Koffi Mensah" required>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label for="orderCustomerAddress" class="form-label">Adresse de livraison (Cotonou / Calavi) *</label>
+          <input type="text" id="orderCustomerAddress" class="form-input" placeholder="Quartier, rue, repère..." required>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1.75rem;">
+          <label for="orderCustomerPhone" class="form-label">Numéro WhatsApp *</label>
+          <input type="tel" id="orderCustomerPhone" class="form-input" placeholder="+229 97 00 00 00" required>
+        </div>
+
+        <button type="submit" class="btn btn-mustard full-width">
+          <i class="fa-brands fa-whatsapp"></i> Envoyer la Commande via WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- CDN Scripts : GSAP, ScrollTrigger, Lenis -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+
+  <!-- Script Maître -->
+  <script src="js/main.js"></script>
 </body>
 </html>
