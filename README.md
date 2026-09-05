@@ -47,8 +47,8 @@ Ce projet est un **site vitrine pour un restaurant**, développé en HTML et CSS
 - Utiliser JavaScript pour rendre le site dynamique (ex: filtre des plats).
 
 ## Auteur
-- **Nom** : [Ton Nom]
-- **Contact** : [Ton Email]
+- **Nom** : [Horacio CHINKOUN]
+- **Contact** : [elfridw4@gmail.com]
 
 ## Licence
 Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
