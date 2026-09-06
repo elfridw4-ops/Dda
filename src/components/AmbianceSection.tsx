@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { BogolanPattern } from './BogolanPattern';
 import { IMAGES } from '../data/restaurantData';
-import { Sparkles, Music, Lamp, HeartHandshake } from 'lucide-react';
+import { Palette, Music, Lamp, HeartHandshake } from 'lucide-react';
 
 export const AmbianceSection = () => {
   return (
@@ -38,7 +38,7 @@ export const AmbianceSection = () => {
               {/* Artisan Badge overlay */}
               <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 bg-[#2B211B]/90 backdrop-blur-md border border-[#C08A2E]/40 px-4 py-2.5 rounded-xl shadow-lg flex items-center gap-3">
                 <div className="w-8 h-8 rounded-lg bg-[#C08A2E]/20 flex items-center justify-center text-[#C08A2E]">
-                  <Sparkles className="w-4 h-4" />
+                  <Palette className="w-4 h-4" />
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-[#F2E9DA]">Artisanat & Décor sculpté</p>

@@ -237,8 +237,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     name: 'Marie Kouamé',
-    role: 'Responsable de salle',
-    bio: 'Avec son sourire communicatif et son sens du détail, Marie veille à ce que chaque repas soit un véritable moment de fête et de convivialité.',
+    role: 'Responsable de salle & des tables',
+    bio: 'Avec son sourire communicatif et son sens du détail, Marie veille à ce que chaque tablée soit un véritable moment de fête, de partage et de convivialité.',
     image: IMAGES.marie,
   },
 ];

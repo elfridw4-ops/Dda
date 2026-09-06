@@ -9,7 +9,6 @@ import {
   Send, 
   Utensils, 
   MessageSquare, 
-  Sparkles, 
   Check, 
   ArrowRight,
   Flame,

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MENU_ITEMS, PRACTICAL_INFO, MenuItem } from '../data/restaurantData';
-import { Utensils, MapPin, Clock, Phone, Sparkles, Filter, ChevronDown, Check } from 'lucide-react';
+import { Utensils, MapPin, Clock, Phone, Filter, ChevronDown, Check } from 'lucide-react';
 
 interface MenuPageProps {
   onOpenReservation: () => void;
