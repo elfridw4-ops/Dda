@@ -1,10 +1,8 @@
-# Fichiers de configuration et d'environnement
-.env
-
-# Fichiers et dossiers d'agents IA (Ne pas commiter dans Git)
-/code/
-AGENTS.md
-GEMINI.md
-GEMINI.md.md
-.agents/
-*.agent.md
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example

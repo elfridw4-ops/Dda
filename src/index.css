@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #16110E;
+    --text-primary: #F2E9DA;
+    --accent-mustard: #C08A2E;
+    --accent-leather: #7A5B45;
+    --accent-terracotta: #B8472E;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    background-color: #16110E;
+    color: #F2E9DA;
+    font-family: var(--font-body);
+    min-height: 100vh;
+    background-image: radial-gradient(rgba(192, 138, 46, 0.16) 0.8px, transparent 0.8px);
+    background-size: 10px 10px;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono, .font-tabular {
+    font-family: var(--font-mono);
+    font-feature-settings: "tnum" 1;
+  }
+}
+
+/* Wonky / soft serif italics */
+.italic-wonky {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Artisanal subtle noise pattern background */
+.bg-grain {
+  background-image: radial-gradient(rgba(242, 233, 218, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #2B211B;
+}
+::-webkit-scrollbar-thumb {
+  background: #7A5B45;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C08A2E;
+}
+
+/* Glassmorphic sticky header */
+.header-glass {
+  background-color: rgba(43, 33, 27, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+@supports not (backdrop-filter: blur(12px)) {
+  .header-glass {
+    background-color: #2B211B;
+  }
+}
+
+/* =========================================
+   Print Styles for Traditional Addition / Receipt (Option C)
+   ========================================= */
+@media print {
+  @page {
+    margin: 0.5cm;
+    size: auto;
+  }
+
+  /* Reset body styling for print paper */
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: auto !important;
+  }
+
+  /* Hide absolutely all site navigation, main layout, hero, pages, and footer */
+  nav,
+  header,
+  main,
+  #main-content,
+  footer,
+  section,
+  #reservation-modal-content,
+  .no-print,
+  .header-glass,
+  .fixed.bottom-6,
+  button {
+    display: none !important;
+  }
+
+  /* Keep printable receipt modal transparent and cleanly centered on page */
+  #reservation-modal-overlay {
+    position: static !important;
+    inset: auto !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+
+  #printable-receipt-modal {
+    position: static !important;
+    inset: auto !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  #printable-receipt-modal > div {
+    margin: 0 auto !important;
+    max-width: 380px !important;
+    box-shadow: none !important;
+    max-height: none !important;
+    overflow: visible !important;
+    background: transparent !important;
+    border: none !important;
+  }
+
+  #printable-receipt-modal div {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* The authentic thermal receipt design on paper */
+  #printable-receipt {
+    display: block !important;
+    visibility: visible !important;
+    background: #ffffff !important;
+    color: #111111 !important;
+    border: 1px solid #444444 !important;
+    border-radius: 4px !important;
+    box-shadow: none !important;
+    padding: 16px 18px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 380px !important;
+    page-break-inside: avoid !important;
+  }
+
+  #printable-receipt * {
+    color: #111111 !important;
+    border-color: #555555 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+}
+
