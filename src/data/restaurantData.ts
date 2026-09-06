@@ -52,31 +52,31 @@ export interface GalleryItem {
   description: string;
 }
 
-// Authentic imagery curated for authentic African gastronomy, Cotonou atmosphere, rattan/bamboo decor & dishes
+// Authentic imagery from the restaurant collection & curated atmosphere
 export const IMAGES = {
   hero: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1600&auto=format&fit=crop", // Warm artisanal African dining atmosphere with bamboo, rattan lamps & earthy tones
   ambiance: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop", // Warm interior with wooden carved decor, intimate lighting
-  experience: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=1600&auto=format&fit=crop", // Friends & family sharing a warm meal together
+  experience: encodeURI("/images/l’adresse parfaite pour allier saveurs….jfif"), // Moments partagés - L'adresse parfaite pour allier saveurs...
   chef: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=800&auto=format&fit=crop", // Chef Jean Dossou
-  marie: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop", // Marie Kouamé, Responsable de salle
-  client1: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop", // Koffi Yao
-  client2: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=400&auto=format&fit=crop", // Aminata Diop
+  marie: encodeURI("/images/marie-kouame.jfif"), // Marie Kouamé, Responsable de salle
+  client1: encodeURI("/images/koffi-yao.jfif"), // Koffi Yao
+  client2: encodeURI("/images/aminata-diop.jfif"), // Aminata Diop
 
-  // Dishes and Accompaniments
-  tilapiaBraise: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80&w=1000&auto=format&fit=crop", // Tilapia braisé avec épices
-  poissonBraise: "https://images.unsplash.com/photo-1534939561126-855b8675edd7?q=80&w=1000&auto=format&fit=crop", // Poisson braisé garni
-  rizGras: "https://images.unsplash.com/photo-1574484284002-952d92456975?q=80&w=1000&auto=format&fit=crop", // Riz gras avec alloco et viande
-  platDuRoi: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1000&auto=format&fit=crop", // Plat du Roi (assortiment braisé)
-  pastelsSenegalais: "https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=1000&auto=format&fit=crop", // Pastels dorés
-  beignetsMaison: "https://images.unsplash.com/photo-1621236378699-8597faf6a176?q=80&w=1000&auto=format&fit=crop", // Beignets dorés traditionnels
-  alloco: "https://images.unsplash.com/photo-1628294895950-9805252327bc?q=80&w=1000&auto=format&fit=crop", // Bananes plantains frites dorées (Alloco)
-  attieke: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000&auto=format&fit=crop", // Semoule de manioc fraîche (Attiéké)
-  fritesIgname: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?q=80&w=1000&auto=format&fit=crop", // Bâtonnets d'igname croustillants
-  rizBlanc: "https://images.unsplash.com/photo-1516684732162-798a0062be99?q=80&w=1000&auto=format&fit=crop", // Riz blanc parfumé
-  dessertsVaries: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=1000&auto=format&fit=crop", // Desserts variés
-  nougatArachides: "https://images.unsplash.com/photo-1582293041079-7814c2f12063?q=80&w=1000&auto=format&fit=crop", // Nougat aux arachides
-  bissap: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=1000&auto=format&fit=crop", // Verre de Bissap frais
-  crepes: "https://images.unsplash.com/photo-1519676867240-f03562e64548?q=80&w=1000&auto=format&fit=crop", // Crêpes gourmandes
+  // Dishes and Accompaniments from /images/
+  tilapiaBraise: encodeURI("/images/Tilapia-braisé.jfif"), // Tilapia braisé avec épices
+  poissonBraise: encodeURI("/images/poisson-braisé.jfif"), // Poisson braisé garni
+  rizGras: encodeURI("/images/riz-au-gras.jfif"), // Riz gras avec alloco et viande
+  platDuRoi: encodeURI("/images/plat-du-roi.jfif"), // Plat du Roi (assortiment braisé)
+  pastelsSenegalais: encodeURI("/images/pastels-senegalais.jfif"), // Pastels dorés
+  beignetsMaison: encodeURI("/images/beignets-maison.jfif"), // Beignets dorés traditionnels
+  alloco: encodeURI("/images/alloco-dore.jpg"), // Bananes plantains frites dorées (Alloco)
+  attieke: encodeURI("/images/attieke.jpg"), // Semoule de manioc fraîche (Attiéké)
+  fritesIgname: encodeURI("/images/frites-d’igname.jpg"), // Bâtonnets d'igname croustillants
+  rizBlanc: encodeURI("/images/riz-blanc.jpg"), // Riz blanc parfumé
+  dessertsVaries: encodeURI("/images/desserts-variés.jfif"), // Desserts variés
+  nougatArachides: encodeURI("/images/nougard-au-arachides.jfif"), // Nougat aux arachides
+  bissap: encodeURI("/images/bissap.jfif"), // Verre de Bissap frais
+  crepes: encodeURI("/images/crêpes.jfif"), // Crêpes gourmandes
 };
 
 export const MENU_ITEMS: MenuItem[] = [
@@ -265,11 +265,11 @@ export const TESTIMONIALS: Testimonial[] = [
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: 'g1',
-    title: 'Terrasse en bambou & rotin',
+    title: 'Terrasse & Cadre du restaurant',
     category: 'Ambiance',
     image: IMAGES.hero,
     sizeSpan: 'wide',
-    description: 'Espace extérieur aéré avec lampes en fibres tressées et carrelage terre cuite.',
+    description: 'Espace extérieur aéré avec lampes en fibres tressées et convivialité béninoise.',
   },
   {
     id: 'g2',
@@ -297,11 +297,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: 'g5',
-    title: 'Riz Gras & Alloco doré',
+    title: 'Riz au Gras parfumé',
     category: 'Plats',
     image: IMAGES.rizGras,
     sizeSpan: 'normal',
-    description: 'Cuisson lente au bouillon aromatique et plantains caramélisés.',
+    description: 'Cuisson lente au bouillon aromatique et viandes tendres.',
   },
   {
     id: 'g6',
@@ -313,6 +313,30 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: 'g7',
+    title: 'Plat du Roi (Festin Royal)',
+    category: 'Plats',
+    image: IMAGES.platDuRoi,
+    sizeSpan: 'wide',
+    description: 'Assortiment royal de braisés au feu de bois et sauce graine.',
+  },
+  {
+    id: 'g8',
+    title: 'Alloco Doré',
+    category: 'Plats',
+    image: IMAGES.alloco,
+    sizeSpan: 'normal',
+    description: 'Bananes plantains mûres frites à la minute, crousti-fondantes.',
+  },
+  {
+    id: 'g9',
+    title: 'Attiéké Frais',
+    category: 'Plats',
+    image: IMAGES.attieke,
+    sizeSpan: 'normal',
+    description: 'Semoule de manioc vapeur aérée, l\'accompagnement par excellence.',
+  },
+  {
+    id: 'g10',
     title: 'Pastels croustillants',
     category: 'Plats',
     image: IMAGES.pastelsSenegalais,
@@ -320,15 +344,15 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     description: 'Farcis au poisson épicé et herbes du potager.',
   },
   {
-    id: 'g8',
+    id: 'g11',
     title: 'Beignets & douceurs dorées',
     category: 'Plats',
     image: IMAGES.beignetsMaison,
     sizeSpan: 'normal',
-    description: 'Moelleux à souhait, saupoudrés d\'un nuage de cannelle.',
+    description: 'Moelleux à souhait, parfumés à la muscade et fleur d\'oranger.',
   },
   {
-    id: 'g9',
+    id: 'g12',
     title: 'Bissap frais à la menthe',
     category: 'Plats',
     image: IMAGES.bissap,
@@ -336,7 +360,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     description: 'Fleurs d\'hibiscus infusées aux herbes fraîches de Fidjrossè.',
   },
   {
-    id: 'g10',
+    id: 'g13',
     title: 'Crêpes & Miel sauvage',
     category: 'Plats',
     image: IMAGES.crepes,
@@ -344,7 +368,15 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     description: 'Dessert réconfortant arrosé de miel pur de nos terroirs.',
   },
   {
-    id: 'g11',
+    id: 'g14',
+    title: 'Nougat aux Arachides',
+    category: 'Plats',
+    image: IMAGES.nougatArachides,
+    sizeSpan: 'normal',
+    description: 'Nougat artisanal caramélisé au sucre roux.',
+  },
+  {
+    id: 'g15',
     title: 'Chef Jean Dossou en cuisine',
     category: 'Moments',
     image: IMAGES.chef,
@@ -352,7 +384,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     description: 'Le soin artisanal apporté à chaque assiette servie.',
   },
   {
-    id: 'g12',
+    id: 'g16',
     title: 'Accueil chaleureux par Marie',
     category: 'Moments',
     image: IMAGES.marie,

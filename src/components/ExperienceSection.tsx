@@ -13,10 +13,10 @@ export const ExperienceSection = () => {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="relative rounded-[28px] sm:rounded-[36px] overflow-hidden border border-[#7A5B45]/35 shadow-2xl min-h-[480px] sm:min-h-[540px] lg:min-h-[600px] flex items-end group"
         >
-          {/* Authentic Warm Restaurant Interior Background Photo */}
+          {/* Authentic Warm Restaurant Exterior/Sharing Background Photo */}
           <div className="absolute inset-0 z-0">
             <img
-              src={IMAGES.ambiance}
+              src={IMAGES.experience}
               alt="Cadre et ambiance conviviale au Délice Africain"
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out"
               loading="lazy"
