@@ -25,6 +25,7 @@ export default function App() {
   const [preOrderTotal, setPreOrderTotal] = useState<number>(0);
   const [preOrderItems, setPreOrderItems] = useState<ReceiptItem[]>([]);
   const [preOrderPrepTime, setPreOrderPrepTime] = useState<string | undefined>(undefined);
+  const [reservationInitialMode, setReservationInitialMode] = useState<'details' | 'booking'>('booking');
 
   // Scanned QR Ticket state
   const [scannedTicketData, setScannedTicketData] = useState<{
@@ -117,6 +118,7 @@ export default function App() {
       unitPrice: dish.price
     }]);
     setPreOrderPrepTime(dish.prepTime);
+    setReservationInitialMode('details');
     setIsReservationOpen(true);
   };
 
@@ -126,6 +128,7 @@ export default function App() {
     setPreOrderTotal(0);
     setPreOrderItems([]);
     setPreOrderPrepTime(undefined);
+    setReservationInitialMode('booking');
     setIsReservationOpen(true);
   };
 
@@ -140,6 +143,7 @@ export default function App() {
     setPreOrderTotal(totalAmount);
     setPreOrderItems(items || []);
     setPreOrderPrepTime(prepTime);
+    setReservationInitialMode('booking');
     setIsReservationOpen(true);
   };
 
@@ -254,6 +258,7 @@ export default function App() {
         initialTotalAmount={preOrderTotal}
         initialItems={preOrderItems}
         prepTimeEstimated={preOrderPrepTime}
+        initialMode={reservationInitialMode}
       />
 
       {/* Scanned QR Code Ticket Verification Modal */}

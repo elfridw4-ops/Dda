@@ -12,9 +12,12 @@ import {
   MessageSquare,
   Printer,
   Receipt as ReceiptIcon,
-  Download
+  Download,
+  Flame,
+  Sparkles,
+  ChevronLeft
 } from 'lucide-react';
-import { MenuItem, PRACTICAL_INFO } from '../data/restaurantData';
+import { MenuItem, PRACTICAL_INFO, formatXOF } from '../data/restaurantData';
 import { ReceiptModal, ReceiptData, ReceiptItem } from './ReceiptModal';
 
 interface ReservationModalProps {
@@ -25,6 +28,7 @@ interface ReservationModalProps {
   initialTotalAmount?: number;
   initialItems?: ReceiptItem[];
   prepTimeEstimated?: string;
+  initialMode?: 'details' | 'booking';
 }
 
 export const ReservationModal = ({ 
@@ -34,8 +38,11 @@ export const ReservationModal = ({
   initialOrderText, 
   initialTotalAmount,
   initialItems = [],
-  prepTimeEstimated
+  prepTimeEstimated,
+  initialMode
 }: ReservationModalProps) => {
+  const [viewMode, setViewMode] = useState<'details' | 'booking'>('booking');
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -55,6 +62,14 @@ export const ReservationModal = ({
 
   useEffect(() => {
     if (isOpen) {
+      if (initialMode) {
+        setViewMode(initialMode);
+      } else if (initialDish && !initialOrderText) {
+        setViewMode('details');
+      } else {
+        setViewMode('booking');
+      }
+
       if (initialOrderText) {
         setAttachedOrder(initialOrderText);
         setAttachedTotal(initialTotalAmount || null);
@@ -85,7 +100,7 @@ export const ReservationModal = ({
         }));
       }
     }
-  }, [isOpen, initialOrderText, initialDish, initialTotalAmount, initialItems]);
+  }, [isOpen, initialMode, initialOrderText, initialDish, initialTotalAmount, initialItems]);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -161,10 +176,10 @@ export const ReservationModal = ({
           onClick={(e) => e.stopPropagation()}
           className="relative w-full max-w-lg bg-[#2B211B] border border-[#C08A2E]/40 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden my-8"
         >
-          {/* Close Button */}
+          {/* Single Unified Close Button */}
           <button
             onClick={handleResetAndClose}
-            className="absolute top-5 right-5 p-2 rounded-full bg-[#7A5B45]/30 hover:bg-[#B8472E] text-[#F2E9DA] transition-colors"
+            className="absolute top-5 right-5 z-20 p-2 rounded-full bg-[#7A5B45]/30 hover:bg-[#B8472E] text-[#F2E9DA] transition-colors cursor-pointer"
             aria-label="Fermer la fenêtre"
           >
             <X className="w-5 h-5" />
@@ -216,7 +231,7 @@ export const ReservationModal = ({
                   </div>
                   <div>
                     <span className="block text-[10px] uppercase text-[#8C7D75]">Total Estimé</span>
-                    <strong className="text-[#B8472E]">{receiptData.totalAmount.toLocaleString('fr-FR')} FCFA</strong>
+                    <strong className="text-[#B8472E] tabular-nums">{formatXOF(receiptData.totalAmount)}</strong>
                   </div>
                 </div>
 
@@ -225,9 +240,9 @@ export const ReservationModal = ({
                     <span className="font-bold text-[#1D1714] block mb-0.5">Mets pré-commandés :</span>
                     <div className="max-h-20 overflow-y-auto space-y-1">
                       {receiptData.items.map((item, i) => (
-                        <div key={i} className="flex justify-between">
-                          <span>{item.quantity}x {item.name}</span>
-                          <span>{((item.unitPrice + (item.sidesPrice || 0)) * item.quantity).toLocaleString('fr-FR')} F</span>
+                        <div key={i} className="flex justify-between items-baseline">
+                          <span className="truncate pr-2">{item.quantity}x {item.name}</span>
+                          <span className="shrink-0 tabular-nums font-semibold">{formatXOF((item.unitPrice + (item.sidesPrice || 0)) * item.quantity)}</span>
                         </div>
                       ))}
                     </div>
@@ -265,9 +280,139 @@ export const ReservationModal = ({
                 </div>
               </div>
             </motion.div>
+          ) : viewMode === 'details' && initialDish ? (
+            <div>
+              {/* Dish Details Header */}
+              <div className="mb-4 pr-10">
+                <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-[#C08A2E] bg-[#C08A2E]/10 border border-[#C08A2E]/30 px-2.5 py-0.5 rounded-md">
+                    {initialDish.category}
+                  </span>
+                  {initialDish.badge && (
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-white bg-[#B8472E] px-2 py-0.5 rounded-md font-bold shadow-sm">
+                      {initialDish.badge}
+                    </span>
+                  )}
+                  {initialDish.isSignature && (
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#1C140E] bg-[#C08A2E] px-2 py-0.5 rounded-md font-bold shadow-sm">
+                      ★ Signature du Chef
+                    </span>
+                  )}
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-display font-medium text-[#F2E9DA]">
+                  {initialDish.name}
+                </h3>
+              </div>
+
+              {/* Dish Hero Media & Price Overlay */}
+              <div className="relative rounded-2xl overflow-hidden border border-[#C08A2E]/35 aspect-[16/10] bg-[#2B211B] mb-4 shadow-xl group">
+                <img
+                  src={initialDish.image}
+                  alt={initialDish.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1C140E] via-transparent to-black/25" />
+                
+                {/* Price Medallion in tabular format */}
+                <div className="absolute bottom-3.5 right-3.5 bg-[#1C140E]/95 border border-[#C08A2E]/60 px-3.5 py-1.5 rounded-xl shadow-lg backdrop-blur-md flex items-baseline gap-1.5">
+                  <span className="font-mono text-base sm:text-lg font-bold text-[#C08A2E] tabular-nums">
+                    {formatXOF(initialDish.price)}
+                  </span>
+                  <span className="text-[10px] font-mono text-[#F2E9DA]/60">(XOF)</span>
+                </div>
+              </div>
+
+              {/* Culinary highlights */}
+              <div className="grid grid-cols-3 gap-2.5 mb-4">
+                <div className="p-2.5 rounded-xl bg-[#7A5B45]/15 border border-[#7A5B45]/40 text-center sm:text-left">
+                  <div className="flex items-center justify-center sm:justify-start gap-1 text-[10px] font-mono uppercase text-[#C08A2E] mb-0.5">
+                    <Clock className="w-3 h-3" />
+                    <span>Délai</span>
+                  </div>
+                  <p className="text-xs font-semibold text-[#F2E9DA]">
+                    {initialDish.prepTime ? `~${initialDish.prepTime}` : '15-20 min'}
+                  </p>
+                </div>
+
+                <div className="p-2.5 rounded-xl bg-[#7A5B45]/15 border border-[#7A5B45]/40 text-center sm:text-left">
+                  <div className="flex items-center justify-center sm:justify-start gap-1 text-[10px] font-mono uppercase text-[#B8472E] mb-0.5">
+                    <Flame className="w-3 h-3" />
+                    <span>Cuisson</span>
+                  </div>
+                  <p className="text-xs font-semibold text-[#F2E9DA]">
+                    Feu de bois
+                  </p>
+                </div>
+
+                <div className="p-2.5 rounded-xl bg-[#7A5B45]/15 border border-[#7A5B45]/40 text-center sm:text-left">
+                  <div className="flex items-center justify-center sm:justify-start gap-1 text-[10px] font-mono uppercase text-[#C08A2E] mb-0.5">
+                    <Sparkles className="w-3 h-3" />
+                    <span>Saveur</span>
+                  </div>
+                  <p className="text-xs font-semibold text-[#F2E9DA] truncate">
+                    {initialDish.spiciness || 'Au choix'}
+                  </p>
+                </div>
+              </div>
+
+              {/* Culinary Description */}
+              <div className="space-y-3 mb-5">
+                <p className="text-sm text-[#F2E9DA]/85 leading-relaxed">
+                  {initialDish.description}
+                </p>
+
+                {initialDish.cookingMethod && (
+                  <div className="p-3.5 rounded-xl bg-[#2B211B] border border-[#C08A2E]/25 text-xs text-[#F2E9DA]/80 leading-relaxed">
+                    <strong className="text-[#C08A2E] flex items-center gap-1.5 mb-1 text-[11px] font-mono uppercase tracking-wider">
+                      <Flame className="w-3.5 h-3.5 text-[#B8472E]" />
+                      Savoir-faire du Chef :
+                    </strong>
+                    {initialDish.cookingMethod}
+                  </div>
+                )}
+
+                {initialDish.ingredients && initialDish.ingredients.length > 0 && (
+                  <div className="space-y-1.5">
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-[#C08A2E] block">
+                      Ingrédients & Aromates frais :
+                    </span>
+                    <div className="flex flex-wrap gap-1.5">
+                      {initialDish.ingredients.map((ing, i) => (
+                        <span 
+                          key={i} 
+                          className="text-[11px] px-2.5 py-1 rounded-lg bg-[#7A5B45]/20 border border-[#7A5B45]/40 text-[#F2E9DA]/90 font-mono"
+                        >
+                          {ing}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Bottom Actions Bar */}
+              <div className="pt-4 border-t border-[#7A5B45]/40 flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="px-4 py-3 rounded-xl bg-[#7A5B45]/20 hover:bg-[#7A5B45]/30 text-[#F2E9DA]/80 text-xs font-mono uppercase tracking-wider transition-colors"
+                >
+                  Fermer
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setViewMode('booking')}
+                  className="flex-1 py-3 px-4 bg-[#C08A2E] hover:bg-[#d49933] text-[#1C140E] font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <Utensils className="w-4 h-4" />
+                  <span>Réserver une table pour ce plat</span>
+                </button>
+              </div>
+            </div>
           ) : (
             <div>
-              <div className="mb-6">
+              <div className="mb-6 pr-10">
                 <span className="text-[11px] font-mono uppercase tracking-widest text-[#C08A2E] block mb-1">
                   Table & Dégustation
                 </span>
@@ -287,8 +432,8 @@ export const ReservationModal = ({
                   </div>
                   <div className="flex items-center gap-2">
                     {attachedTotal && (
-                      <span className="font-mono text-xs font-bold text-[#C08A2E] bg-[#2B211B] px-2 py-1 rounded-lg border border-[#C08A2E]/40">
-                        {attachedTotal.toLocaleString('fr-FR')} FCFA
+                      <span className="font-mono text-xs font-bold text-[#C08A2E] bg-[#2B211B] px-2 py-1 rounded-lg border border-[#C08A2E]/40 tabular-nums">
+                        {formatXOF(attachedTotal)}
                       </span>
                     )}
                     <button
@@ -316,9 +461,17 @@ export const ReservationModal = ({
                     />
                     <div>
                       <p className="text-xs font-semibold text-[#F2E9DA]">{initialDish.name}</p>
-                      <p className="text-[11px] font-mono text-[#C08A2E]">{initialDish.formattedPrice}</p>
+                      <p className="text-[11px] font-mono text-[#C08A2E] font-bold tabular-nums">{formatXOF(initialDish.price)}</p>
                     </div>
                   </div>
+                  <button
+                    type="button"
+                    onClick={() => setViewMode('details')}
+                    className="text-xs font-mono text-[#C08A2E] hover:underline px-2.5 py-1.5 rounded-lg border border-[#C08A2E]/30 hover:bg-[#C08A2E]/10 transition-colors flex items-center gap-1 cursor-pointer"
+                  >
+                    <ChevronLeft className="w-3.5 h-3.5" />
+                    <span>Détails du plat</span>
+                  </button>
                 </div>
               )}
 

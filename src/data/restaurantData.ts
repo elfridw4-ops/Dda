@@ -9,7 +9,23 @@ export interface MenuItem {
   badge?: string;
   isSignature?: boolean;
   prepTime?: string;
+  // Extra detailed culinary attributes for the details view
+  cookingMethod?: string;
+  ingredients?: string[];
+  recommendedSides?: string[];
+  spiciness?: 'Doux' | 'Moyen' | 'Pimenté' | 'Au choix' | string;
+  origin?: string;
 }
+
+/**
+ * Formate un montant en XOF / FCFA avec des espaces insécables garantis (\u00A0)
+ * Empêche tout retour à la ligne ou débordement dans les reçus, factures et PDF.
+ */
+export const formatXOF = (amount: number, currency: 'FCFA' | 'XOF' = 'FCFA'): string => {
+  if (amount === undefined || amount === null || isNaN(amount)) return `0\u00A0${currency}`;
+  const formatted = Math.round(amount).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '\u00A0');
+  return `${formatted}\u00A0${currency}`;
+};
 
 export interface AccompanimentOption {
   id: string;
@@ -90,6 +106,11 @@ export const MENU_ITEMS: MenuItem[] = [
     image: IMAGES.pastelsSenegalais,
     badge: 'Croustillant',
     prepTime: '10-12 min',
+    cookingMethod: 'Pâte pétrie à la main, dorée à la minute pour un croustillant parfait.',
+    ingredients: ['Farine de blé', 'Poisson frais assaisonné', 'Ail & Persil frais', 'Sauce tomate pimentée maison'],
+    recommendedSides: ['Sauce tomate pimentée', 'Bissap frais'],
+    spiciness: 'Moyen',
+    origin: 'Recette côtière traditionnelle'
   },
   {
     id: 'beignets-maison',
@@ -101,6 +122,11 @@ export const MENU_ITEMS: MenuItem[] = [
     image: IMAGES.beignetsMaison,
     badge: 'Fait Maison',
     prepTime: '10 min',
+    cookingMethod: 'Friture minute à température maîtrisée pour un cœur ultra moelleux.',
+    ingredients: ['Farine de blé', 'Sucre de canne', 'Muscade moulue', 'Fleur d\'oranger', 'Zeste de citron'],
+    recommendedSides: ['Bissap frais', 'Thé à la menthe'],
+    spiciness: 'Doux',
+    origin: 'Douceur conviviale du Bénin'
   },
   {
     id: 'tilapia-braise',
@@ -113,6 +139,11 @@ export const MENU_ITEMS: MenuItem[] = [
     badge: 'Incontournable',
     isSignature: true,
     prepTime: '20-25 min',
+    cookingMethod: 'Braisage lent au charbon de bois naturel après 4 heures de marinade aux aromates frais.',
+    ingredients: ['Tilapia frais entier', 'Épices kankankan', 'Ail, Gingembre & Oignons', 'Piment vert pilé', 'Herbes du potager'],
+    recommendedSides: ['Alloco Doré', 'Attiéké Frais', 'Piment vert écrasé'],
+    spiciness: 'Au choix',
+    origin: 'Pêche locale & lagunes du Sud Bénin'
   },
   {
     id: 'poisson-braise',
@@ -125,6 +156,11 @@ export const MENU_ITEMS: MenuItem[] = [
     badge: 'Signature',
     isSignature: true,
     prepTime: '25-30 min',
+    cookingMethod: 'Capitaine entier saisi à braise vive pour une peau croustillante et une chair fondante.',
+    ingredients: ['Capitaine frais de Cotonou', 'Marinade secrète du Chef Jean', 'Tomates fraîches', 'Oignons caramélisés', 'Piment vert pilé'],
+    recommendedSides: ['Attiéké Frais', 'Alloco Doré', 'Frites d\'Igname'],
+    spiciness: 'Au choix',
+    origin: 'Pêche artisanale côtière (Cotonou Fidjrossè)'
   },
   {
     id: 'riz-gras',
@@ -137,6 +173,11 @@ export const MENU_ITEMS: MenuItem[] = [
     badge: 'Tradition',
     isSignature: true,
     prepTime: '15 min',
+    cookingMethod: 'Cuisson lente à l\'étouffée dans un bouillon réduit de viande et aromates.',
+    ingredients: ['Riz long grain parfumé', 'Morceaux de viande tendre', 'Concentré de tomate & oignons', 'Laurier & aromates locaux'],
+    recommendedSides: ['Alloco Doré', 'Pastels croustillants', 'Bissap frais'],
+    spiciness: 'Doux',
+    origin: 'Grand classique festif d\'Afrique de l\'Ouest'
   },
   {
     id: 'plat-du-roi',
@@ -148,6 +189,11 @@ export const MENU_ITEMS: MenuItem[] = [
     image: IMAGES.platDuRoi,
     badge: 'Prestige',
     prepTime: '25-30 min',
+    cookingMethod: 'Cuisson festive combinée : braisage minute au bois noble et mijoté de sauce graine.',
+    ingredients: ['Tilapia braisé entier', 'Morceaux de viande tendre braisée', 'Sauce graine onctueuse', 'Légumes du marché', 'Double garniture au choix'],
+    recommendedSides: ['Alloco Doré', 'Attiéké Frais', 'Frites d\'Igname'],
+    spiciness: 'Au choix',
+    origin: 'Festin signature d\'honneur'
   },
   {
     id: 'alloco-dore',
@@ -159,6 +205,11 @@ export const MENU_ITEMS: MenuItem[] = [
     image: IMAGES.alloco,
     badge: 'Populaire',
     prepTime: '10-15 min',
+    cookingMethod: 'Friture minute dorée et égouttée avec soin pour un fondant sans excès d\'huile.',
+    ingredients: ['Bananes plantains mûres', 'Pincée de sel pur', 'Huile végétale de qualité'],
+    recommendedSides: ['Tilapia Braisé', 'Poisson Braisé', 'Sauce piment'],
+    spiciness: 'Doux',
+    origin: 'Le favori des tablées africaines'
   },
   {
     id: 'attieke-frais',
@@ -170,6 +221,11 @@ export const MENU_ITEMS: MenuItem[] = [
     image: IMAGES.attieke,
     badge: 'Tradition',
     prepTime: '5-10 min',
+    cookingMethod: 'Cuisson vapeur douce pour préserver la texture aérée et le goût fermenté authentique.',
+    ingredients: ['Semoule de manioc fermentée de qualité', 'Sel fin', 'Filet d\'huile aromatique'],
+    recommendedSides: ['Poisson Braisé', 'Tilapia Braisé', 'Sauce piment vert'],
+    spiciness: 'Doux',
+    origin: 'Terroirs côtiers ouest-africains'
   },
   {
     id: 'frites-igname',
@@ -181,6 +237,11 @@ export const MENU_ITEMS: MenuItem[] = [
     image: IMAGES.fritesIgname,
     badge: 'Terroir',
     prepTime: '12-15 min',
+    cookingMethod: 'Découpe artisanale, précuisson vapeur puis friture croustillante.',
+    ingredients: ['Igname blanche fraîche du Bénin', 'Sel marin', 'Huile de tournesol pure'],
+    recommendedSides: ['Sauce pimentée maison', 'Poissons braisés'],
+    spiciness: 'Doux',
+    origin: 'Terroirs du centre & nord Bénin'
   },
   {
     id: 'riz-blanc',
@@ -191,6 +252,11 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Riz blanc grain long de qualité cuit à la vapeur avec des aromates délicats et feuille de laurier.',
     image: IMAGES.rizBlanc,
     prepTime: '5-10 min',
+    cookingMethod: 'Vapeur grain par grain avec infusion de laurier.',
+    ingredients: ['Riz blanc grain long', 'Feuilles de laurier séchées', 'Sel de Guérande'],
+    recommendedSides: ['Plats en sauce', 'Sauce graine', 'Poissons braisés'],
+    spiciness: 'Doux',
+    origin: 'Cuisine du quotidien soignée'
   },
   {
     id: 'desserts-varies',
@@ -201,6 +267,11 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Assiette dégustation de douceurs locales revisitées, crêpes moelleuses au miel sauvage et fruits tropicaux tranchés.',
     image: IMAGES.dessertsVaries,
     prepTime: '5 min',
+    cookingMethod: 'Dressage minute avec fruits tropicaux mûrs à point et crêpes tièdes.',
+    ingredients: ['Mangue fraîche', 'Ananas pain de sucre', 'Papaye', 'Crêpe maison', 'Miel sauvage'],
+    recommendedSides: ['Bissap frais'],
+    spiciness: 'Doux',
+    origin: 'Vergers tropicaux du Bénin'
   },
   {
     id: 'nougat-arachides',
@@ -212,6 +283,11 @@ export const MENU_ITEMS: MenuItem[] = [
     image: IMAGES.nougatArachides,
     badge: 'Nouveau',
     prepTime: 'Immédiat',
+    cookingMethod: 'Torréfaction lente des arachides et nappage au caramel de canne blond.',
+    ingredients: ['Arachides béninoises sélectionnées', 'Sucre de canne roux', 'Extrait de vanille pure'],
+    recommendedSides: ['Café ou infusion'],
+    spiciness: 'Doux',
+    origin: 'Confiserie artisanale béninoise'
   },
   {
     id: 'bissap',
@@ -223,6 +299,11 @@ export const MENU_ITEMS: MenuItem[] = [
     image: IMAGES.bissap,
     badge: 'Rafraîchissant',
     prepTime: 'Immédiat',
+    cookingMethod: 'Infusion lente à froid de fleurs d\'hibiscus avec menthe fraîche et gingembre.',
+    ingredients: ['Calices d\'hibiscus sabdariffa bio', 'Feuilles de menthe fraîche', 'Jus de gingembre frais', 'Sucre de canne'],
+    recommendedSides: ['Tous les plats braisés et entrées'],
+    spiciness: 'Doux & vivifiant',
+    origin: 'Infusion signature d\'Afrique de l\'Ouest'
   },
 ];
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle2, X, Calendar, Clock, Users, Utensils, Receipt as ReceiptIcon, ShieldCheck } from 'lucide-react';
 import { ReceiptData } from './ReceiptModal';
+import { formatXOF } from '../data/restaurantData';
 
 interface TicketVerificationModalProps {
   isOpen: boolean;
@@ -113,8 +114,8 @@ export const TicketVerificationModal: React.FC<TicketVerificationModalProps> = (
 
             <div className="pt-2 border-t border-dashed border-[#1D1714]/20 flex justify-between items-baseline font-bold text-sm">
               <span className="text-[11px] uppercase text-[#594A42]">Total à régler :</span>
-              <span className="text-base font-extrabold text-[#B8472E]">
-                {ticketData.total.toLocaleString('fr-FR')} FCFA
+              <span className="text-base font-extrabold text-[#B8472E] tabular-nums whitespace-nowrap">
+                {formatXOF(ticketData.total)}
               </span>
             </div>
 
@@ -122,9 +123,11 @@ export const TicketVerificationModal: React.FC<TicketVerificationModalProps> = (
               <div className="pt-2 border-t border-dotted border-[#1D1714]/20 text-[10px] text-[#594A42] space-y-1">
                 <span className="font-bold text-[#1D1714] block">Détail des mets :</span>
                 {ticketData.items.map((it, idx) => (
-                  <div key={idx} className="flex justify-between">
-                    <span>{it.quantity}x {it.name}</span>
-                    <span>{(it.unitPrice * it.quantity).toLocaleString('fr-FR')} F</span>
+                  <div key={idx} className="flex justify-between items-baseline">
+                    <span className="truncate pr-2">{it.quantity}x {it.name}</span>
+                    <span className="tabular-nums whitespace-nowrap shrink-0 font-medium">
+                      {formatXOF(it.unitPrice * it.quantity)}
+                    </span>
                   </div>
                 ))}
               </div>

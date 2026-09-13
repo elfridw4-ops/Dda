@@ -16,7 +16,7 @@ import {
   QrCode as QrCodeIcon,
   Barcode as BarcodeIcon
 } from 'lucide-react';
-import { PRACTICAL_INFO } from '../data/restaurantData';
+import { PRACTICAL_INFO, formatXOF } from '../data/restaurantData';
 
 export interface ReceiptItem {
   name: string;
@@ -185,20 +185,20 @@ export const ReceiptModal = ({ isOpen, onClose, data }: ReceiptModalProps) => {
           const lineUnit = item.unitPrice + (item.sidesPrice || 0);
           const lineTotal = lineUnit * item.quantity;
           const sidesStr = item.sidesName && item.sidesName !== 'Sans accompagnement' 
-            ? `<div style="font-size: 10px; color: #555; padding-left: 8px;">↳ Accomp. : ${item.sidesName} ${item.sidesPrice ? `(+${item.sidesPrice.toLocaleString('fr-FR')} F)` : '(Inclus)'}</div>` 
+            ? `<div style="font-size: 10px; color: #555; padding-left: 6px;">↳ Accomp. : ${item.sidesName} ${item.sidesPrice ? `(+${formatXOF(item.sidesPrice)})` : '(Inclus)'}</div>` 
             : '';
           const spiceStr = item.spiceLevel 
-            ? `<div style="font-size: 10px; color: #555; padding-left: 8px;">↳ Piment : ${item.spiceLevel} (Inclus)</div>` 
+            ? `<div style="font-size: 10px; color: #555; padding-left: 6px;">↳ Piment : ${item.spiceLevel} (Inclus)</div>` 
             : '';
           return `
             <tr style="border-bottom: 1px dotted #ccc;">
-              <td style="padding: 6px 0; vertical-align: top;">
+              <td class="col-desc">
                 <strong>${item.quantity}x</strong> ${item.name}
                 ${sidesStr}
                 ${spiceStr}
               </td>
-              <td style="padding: 6px 0; vertical-align: top; text-align: right; font-weight: bold; white-space: nowrap;">
-                ${lineTotal.toLocaleString('fr-FR')} F
+              <td class="col-price">
+                ${formatXOF(lineTotal)}
               </td>
             </tr>
           `;
@@ -251,34 +251,41 @@ export const ReceiptModal = ({ isOpen, onClose, data }: ReceiptModalProps) => {
             <style>
               @page {
                 size: 80mm auto;
-                margin: 4mm;
+                margin: 3mm;
               }
               body {
                 font-family: 'Courier New', Courier, monospace, sans-serif;
                 margin: 0;
-                padding: 12px 10px;
+                padding: 10px 8px;
                 color: #111;
                 background: #fff;
                 font-size: 11px;
-                line-height: 1.4;
+                line-height: 1.35;
                 width: 100%;
-                max-width: 320px;
+                max-width: 290px;
                 margin: 0 auto;
                 box-sizing: border-box;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
+                overflow-x: hidden;
               }
               .center { text-align: center; }
               .bold { font-weight: bold; }
-              .header-title { font-size: 15px; font-weight: bold; text-transform: uppercase; margin: 0; letter-spacing: 0.5px; }
-              .subtitle { font-size: 9.5px; text-transform: uppercase; margin-top: 2px; color: #444; }
+              .header-title { font-size: 14px; font-weight: bold; text-transform: uppercase; margin: 0; letter-spacing: 0.5px; }
+              .subtitle { font-size: 9px; text-transform: uppercase; margin-top: 2px; color: #444; }
               .contact-line { font-size: 8.5px; color: #555; margin-top: 1.5px; }
-              .dashed-line { border-bottom: 1px dashed #222; margin: 8px 0; }
-              .double-line { border-bottom: 2px dashed #000; margin: 10px 0; }
-              .info-row { display: flex; justify-content: space-between; margin-bottom: 3px; font-size: 11px; }
-              .table-items { width: 100%; border-collapse: collapse; margin-top: 4px; }
-              .total-row { display: flex; justify-content: space-between; font-size: 13px; font-weight: bold; margin-top: 6px; padding-top: 4px; border-top: 1px dotted #333; }
-              .barcode { text-align: center; margin: 12px auto 4px auto; width: 100%; }
+              .dashed-line { border-bottom: 1px dashed #222; margin: 7px 0; }
+              .double-line { border-bottom: 2px dashed #000; margin: 8px 0; }
+              .info-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 3px; font-size: 11px; white-space: nowrap; }
+              .info-row span:first-child { flex: 1; text-align: left; overflow: hidden; text-overflow: ellipsis; }
+              .info-row span:last-child { flex-shrink: 0; text-align: right; font-variant-numeric: tabular-nums; }
+              .table-items { width: 100%; table-layout: fixed; border-collapse: collapse; margin-top: 4px; font-size: 11px; }
+              .col-desc { width: 60%; text-align: left; word-break: break-word; overflow-wrap: break-word; padding: 4px 4px 4px 0; vertical-align: top; }
+              .col-price { width: 40%; text-align: right; white-space: nowrap; word-break: keep-all; font-variant-numeric: tabular-nums; padding: 4px 0; vertical-align: top; font-weight: bold; }
+              .total-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 12.5px; font-weight: bold; margin-top: 6px; padding-top: 5px; border-top: 1.5px solid #000; white-space: nowrap; }
+              .total-row .total-label { flex: 1; text-align: left; }
+              .total-row .total-amount { flex-shrink: 0; text-align: right; font-size: 13.5px; font-weight: 900; font-variant-numeric: tabular-nums; color: #000; }
+              .barcode { text-align: center; margin: 10px auto 4px auto; width: 100%; }
               .footer { text-align: center; font-size: 9px; color: #555; margin-top: 8px; line-height: 1.3; }
             </style>
           </head>
@@ -323,8 +330,8 @@ export const ReceiptModal = ({ isOpen, onClose, data }: ReceiptModalProps) => {
             <table class="table-items">
               <thead>
                 <tr style="border-bottom: 1px dashed #555; font-size: 10px; text-transform: uppercase;">
-                  <th style="text-align: left; padding-bottom: 4px;">Désignation</th>
-                  <th style="text-align: right; padding-bottom: 4px;">Montant</th>
+                  <th style="width: 60%; text-align: left; padding-bottom: 4px;">Désignation</th>
+                  <th style="width: 40%; text-align: right; padding-bottom: 4px; white-space: nowrap;">Montant (XOF)</th>
                 </tr>
               </thead>
               <tbody>
@@ -336,15 +343,15 @@ export const ReceiptModal = ({ isOpen, onClose, data }: ReceiptModalProps) => {
 
             <div class="info-row" style="font-size: 10px; color: #444;">
               <span>Sous-total HT :</span>
-              <span>${(data.totalAmount - tvaAmount).toLocaleString('fr-FR')} FCFA</span>
+              <span>${formatXOF(data.totalAmount - tvaAmount)}</span>
             </div>
             <div class="info-row" style="font-size: 10px; color: #444;">
               <span>TVA (18% incluse) :</span>
-              <span>${tvaAmount.toLocaleString('fr-FR')} FCFA</span>
+              <span>${formatXOF(tvaAmount)}</span>
             </div>
             <div class="total-row">
-              <span>TOTAL TTC :</span>
-              <span style="color: #000;">${data.totalAmount.toLocaleString('fr-FR')} FCFA</span>
+              <span class="total-label">TOTAL TTC (XOF) :</span>
+              <span class="total-amount">${formatXOF(data.totalAmount)}</span>
             </div>
 
             ${data.prepTimeEstimated ? `
@@ -396,10 +403,10 @@ export const ReceiptModal = ({ isOpen, onClose, data }: ReceiptModalProps) => {
         const sides = i.sidesName ? ` (+${i.sidesName})` : '';
         const spice = i.spiceLevel ? ` [Piment : ${i.spiceLevel}]` : '';
         const lineTotal = (i.unitPrice + (i.sidesPrice || 0)) * i.quantity;
-        return `• ${i.quantity}x ${i.name}${sides}${spice} = ${lineTotal.toLocaleString('fr-FR')} FCFA`;
+        return `• ${i.quantity}x ${i.name}${sides}${spice} = ${formatXOF(lineTotal)}`;
       }),
       '',
-      `💰 *TOTAL :* ${data.totalAmount.toLocaleString('fr-FR')} FCFA`,
+      `💰 *TOTAL :* ${formatXOF(data.totalAmount)}`,
       data.prepTimeEstimated ? `⏱️ *Délai estimé :* ${data.prepTimeEstimated}` : '',
       data.specialInstructions ? `📝 *Note :* ${data.specialInstructions}` : '',
       '',
@@ -525,15 +532,17 @@ export const ReceiptModal = ({ isOpen, onClose, data }: ReceiptModalProps) => {
                           <span className="font-bold">{item.quantity}x </span>
                           <span>{item.name}</span>
                         </div>
-                        <span className="font-bold shrink-0">
-                          {lineTotal.toLocaleString('fr-FR')} F
+                        <span className="font-bold shrink-0 tabular-nums whitespace-nowrap">
+                          {formatXOF(lineTotal)}
                         </span>
                       </div>
                       {/* Accompaniment details with extra price */}
                       {item.sidesName && item.sidesName !== 'Sans accompagnement' && (
-                        <div className="pl-4 text-[10px] text-[#594A42] flex justify-between">
-                          <span>↳ Accomp. : {item.sidesName}</span>
-                          <span>{item.sidesPrice ? `+${item.sidesPrice.toLocaleString('fr-FR')} F` : '0 F'}</span>
+                        <div className="pl-4 text-[10px] text-[#594A42] flex justify-between items-baseline">
+                          <span className="truncate pr-2">↳ Accomp. : {item.sidesName}</span>
+                          <span className="shrink-0 tabular-nums whitespace-nowrap">
+                            {item.sidesPrice ? `+${formatXOF(item.sidesPrice)}` : 'Inclus'}
+                          </span>
                         </div>
                       )}
                       {/* Spice choice (always included 0 FCFA) */}
@@ -550,18 +559,18 @@ export const ReceiptModal = ({ isOpen, onClose, data }: ReceiptModalProps) => {
 
             {/* Financial Summary */}
             <div className="py-3 border-b-2 border-dashed border-[#1D1714]/30 space-y-1.5 text-[11px]">
-              <div className="flex justify-between text-[#594A42]">
+              <div className="flex justify-between items-baseline text-[#594A42]">
                 <span>Sous-total HT :</span>
-                <span>{(data.totalAmount - tvaAmount).toLocaleString('fr-FR')} FCFA</span>
+                <span className="tabular-nums whitespace-nowrap font-medium">{formatXOF(data.totalAmount - tvaAmount)}</span>
               </div>
-              <div className="flex justify-between text-[#594A42] text-[10px]">
+              <div className="flex justify-between items-baseline text-[#594A42] text-[10px]">
                 <span>TVA (18% incluse) :</span>
-                <span>{tvaAmount.toLocaleString('fr-FR')} FCFA</span>
+                <span className="tabular-nums whitespace-nowrap font-medium">{formatXOF(tvaAmount)}</span>
               </div>
               <div className="flex justify-between items-baseline pt-1.5 text-sm font-bold text-[#1D1714] border-t border-dotted border-[#1D1714]/20">
                 <span className="uppercase tracking-wider">Total TTC à régler :</span>
-                <span className="text-base font-extrabold text-[#B8472E]">
-                  {data.totalAmount.toLocaleString('fr-FR')} FCFA
+                <span className="text-base font-extrabold text-[#B8472E] tabular-nums whitespace-nowrap">
+                  {formatXOF(data.totalAmount)}
                 </span>
               </div>
             </div>

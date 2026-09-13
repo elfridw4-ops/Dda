@@ -146,9 +146,9 @@ export const MenuPage = ({ onOpenReservation, onSelectDish }: MenuPageProps) => 
                     </span>
                     <button
                       onClick={() => onSelectDish ? onSelectDish(item) : onOpenReservation()}
-                      className="px-3 py-1.5 rounded-lg bg-[#7A5B45]/20 hover:bg-[#C08A2E] text-[#F2E9DA] hover:text-[#2B211B] transition-colors"
+                      className="px-3 py-1.5 rounded-lg bg-[#7A5B45]/20 hover:bg-[#C08A2E] text-[#F2E9DA] hover:text-[#2B211B] transition-colors font-medium"
                     >
-                      Commander / Réserver
+                      Détails & Réserver
                     </button>
                   </div>
                 </div>
