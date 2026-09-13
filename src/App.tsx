@@ -16,9 +16,10 @@ import { MenuItem } from './data/restaurantData';
 import { UtensilsCrossed } from 'lucide-react';
 import { ReceiptItem, ReceiptData, ReceiptModal } from './components/ReceiptModal';
 import { TicketVerificationModal } from './components/TicketVerificationModal';
+import { BackOfficeDashboard } from './components/BackOfficeDashboard';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'accueil' | 'menu' | 'galerie' | 'apropos' | 'contact'>('accueil');
+  const [activeTab, setActiveTab] = useState<'accueil' | 'menu' | 'galerie' | 'apropos' | 'contact' | 'admin'>('accueil');
   const [isReservationOpen, setIsReservationOpen] = useState(false);
   const [selectedDishForBooking, setSelectedDishForBooking] = useState<MenuItem | null>(null);
   const [preOrderSummary, setPreOrderSummary] = useState<string>('');
@@ -43,56 +44,66 @@ export default function App() {
   const [verifiedFullReceipt, setVerifiedFullReceipt] = useState<ReceiptData | null>(null);
   const [isVerifiedReceiptOpen, setIsVerifiedReceiptOpen] = useState(false);
 
-  // Detect QR Code scan from URL parameters
+  // Detect QR Code scan from URL parameters or #admin hash
   useEffect(() => {
-    if (typeof window !== 'undefined' && window.location.search) {
-      const params = new URLSearchParams(window.location.search);
-      const ticketParam = params.get('ticket');
-      if (ticketParam) {
-        let cachedReceipt: ReceiptData | null = null;
-        try {
-          const raw = localStorage.getItem(`da_ticket_${ticketParam}`) || localStorage.getItem('da_latest_ticket');
-          if (raw) {
-            const parsed = JSON.parse(raw);
-            if (parsed.ticketNumber === ticketParam) {
-              cachedReceipt = parsed;
-            }
-          }
-        } catch (e) {
-          console.warn('Error reading ticket cache:', e);
+    if (typeof window !== 'undefined') {
+      if (window.location.hash === '#admin') {
+        setActiveTab('admin');
+      }
+
+      if (window.location.search) {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('tab') === 'admin') {
+          setActiveTab('admin');
         }
 
-        if (cachedReceipt) {
-          setScannedTicketData({
-            ticketNumber: cachedReceipt.ticketNumber,
-            client: cachedReceipt.customerName,
-            phone: cachedReceipt.customerPhone,
-            service: cachedReceipt.serviceType,
-            guests: cachedReceipt.guestsCount,
-            date: cachedReceipt.date,
-            time: cachedReceipt.time,
-            total: cachedReceipt.totalAmount,
-            items: cachedReceipt.items,
-          });
-        } else {
-          setScannedTicketData({
-            ticketNumber: ticketParam,
-            client: params.get('client') || 'Client',
-            phone: params.get('phone') || undefined,
-            service: params.get('service') || 'sur-place',
-            guests: parseInt(params.get('guests') || '2', 10),
-            date: params.get('date') || new Date().toLocaleDateString('fr-FR'),
-            time: params.get('time') || '12:30',
-            total: parseInt(params.get('total') || '0', 10),
-          });
+        const ticketParam = params.get('ticket');
+        if (ticketParam) {
+          let cachedReceipt: ReceiptData | null = null;
+          try {
+            const raw = localStorage.getItem(`da_ticket_${ticketParam}`) || localStorage.getItem('da_latest_ticket');
+            if (raw) {
+              const parsed = JSON.parse(raw);
+              if (parsed.ticketNumber === ticketParam) {
+                cachedReceipt = parsed;
+              }
+            }
+          } catch (e) {
+            console.warn('Error reading ticket cache:', e);
+          }
+
+          if (cachedReceipt) {
+            setScannedTicketData({
+              ticketNumber: cachedReceipt.ticketNumber,
+              client: cachedReceipt.customerName,
+              phone: cachedReceipt.customerPhone,
+              service: cachedReceipt.serviceType,
+              guests: cachedReceipt.guestsCount,
+              date: cachedReceipt.date,
+              time: cachedReceipt.time,
+              total: cachedReceipt.totalAmount,
+              items: cachedReceipt.items,
+            });
+          } else {
+            setScannedTicketData({
+              ticketNumber: ticketParam,
+              client: params.get('client') || 'Client',
+              phone: params.get('phone') || undefined,
+              service: params.get('service') || 'sur-place',
+              guests: parseInt(params.get('guests') || '2', 10),
+              date: params.get('date') || new Date().toLocaleDateString('fr-FR'),
+              time: params.get('time') || '12:30',
+              total: parseInt(params.get('total') || '0', 10),
+            });
+          }
+          setIsVerificationModalOpen(true);
         }
-        setIsVerificationModalOpen(true);
       }
     }
   }, []);
 
   // Smooth scroll to top when changing views
-  const handleNavigate = (tab: 'accueil' | 'menu' | 'galerie' | 'apropos' | 'contact', anchor?: string) => {
+  const handleNavigate = (tab: 'accueil' | 'menu' | 'galerie' | 'apropos' | 'contact' | 'admin', anchor?: string) => {
     setActiveTab(tab);
     if (tab === 'accueil') {
       if (anchor) {
@@ -160,6 +171,30 @@ export default function App() {
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  // Render Back-Office dedicated console when admin tab is selected
+  if (activeTab === 'admin') {
+    return (
+      <div className="min-h-screen bg-[#140E0A] text-[#F2E9DA] selection:bg-[#B8472E] selection:text-[#F2E9DA]">
+        <BackOfficeDashboard
+          onClose={() => handleNavigate('accueil')}
+          onOpenReceiptModal={(r) => {
+            setVerifiedFullReceipt(r);
+            setIsVerifiedReceiptOpen(true);
+          }}
+        />
+        {/* Scanned Full Receipt View Modal */}
+        <ReceiptModal
+          isOpen={isVerifiedReceiptOpen}
+          onClose={() => {
+            setIsVerifiedReceiptOpen(false);
+            setVerifiedFullReceipt(null);
+          }}
+          data={verifiedFullReceipt}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#16110E] text-[#F2E9DA] flex flex-col justify-between selection:bg-[#B8472E] selection:text-[#F2E9DA]">

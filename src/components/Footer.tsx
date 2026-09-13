@@ -1,7 +1,7 @@
-import { MapPin, Instagram, Facebook, Twitter } from 'lucide-react';
+import { MapPin, Instagram, Facebook, Twitter, ShieldCheck } from 'lucide-react';
 
 interface FooterProps {
-  onNavigate: (tab: 'accueil' | 'menu' | 'galerie' | 'apropos' | 'contact') => void;
+  onNavigate: (tab: 'accueil' | 'menu' | 'galerie' | 'apropos' | 'contact' | 'admin') => void;
   onOpenReservation?: () => void;
 }
 
@@ -127,6 +127,16 @@ export const Footer = ({ onNavigate }: FooterProps) => {
         {/* Bottom Bar Separator & Copyright Line */}
         <div className="border-t border-[#F2E9DA]/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#F2E9DA]/60">
           <p>© 2026 Le Délice Africain. Tous droits réservés.</p>
+          
+          <button
+            onClick={() => onNavigate('admin')}
+            className="text-[11px] text-[#F2E9DA]/50 hover:text-[#C08A2E] flex items-center gap-1.5 transition-colors cursor-pointer py-1 px-2.5 rounded-lg hover:bg-white/5"
+            title="Accès réservé au gérant et à la brigade"
+          >
+            <ShieldCheck className="w-3.5 h-3.5 text-[#C08A2E]" />
+            <span>Espace Gérance / Back-Office</span>
+          </button>
+
           <p className="flex items-center gap-2">
             <span>Fait avec passion à Cotonou</span>
             <span className="w-1.5 h-1.5 rounded-full bg-[#B8472E] inline-block shadow-xs shadow-[#B8472E]" />

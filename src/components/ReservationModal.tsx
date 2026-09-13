@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { MenuItem, PRACTICAL_INFO, formatXOF } from '../data/restaurantData';
 import { ReceiptModal, ReceiptData, ReceiptItem } from './ReceiptModal';
+import { addReservationFromClient } from '../data/backofficeStore';
 
 interface ReservationModalProps {
   isOpen: boolean;
@@ -145,6 +146,8 @@ export const ReservationModal = ({
       try {
         localStorage.setItem(`da_ticket_${generatedTicketNumber}`, JSON.stringify(newReceipt));
         localStorage.setItem('da_latest_ticket', JSON.stringify(newReceipt));
+        // Synchronisation avec le Back-Office du restaurant
+        addReservationFromClient(newReceipt);
       } catch (e) {
         console.warn('Could not save ticket to localStorage', e);
       }
@@ -484,10 +487,12 @@ export const ReservationModal = ({
                     <input
                       type="text"
                       required
+                      name="name"
+                      autoComplete="name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Jean Dossou"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#7A5B45]/15 border border-[#7A5B45]/50 text-[#F2E9DA] placeholder-[#F2E9DA]/30 focus:outline-none focus:border-[#C08A2E] text-sm"
+                      className="w-full px-3.5 py-3 min-h-[44px] rounded-xl bg-[#7A5B45]/15 border border-[#7A5B45]/50 text-[#F2E9DA] placeholder-[#F2E9DA]/30 focus:outline-none focus:border-[#C08A2E] text-base sm:text-sm"
                     />
                   </div>
 
@@ -498,15 +503,18 @@ export const ReservationModal = ({
                     <input
                       type="tel"
                       required
+                      name="tel"
+                      autoComplete="tel"
+                      inputMode="tel"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="+229 97 00 00 00"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#7A5B45]/15 border border-[#7A5B45]/50 text-[#F2E9DA] placeholder-[#F2E9DA]/30 focus:outline-none focus:border-[#C08A2E] text-sm font-mono"
+                      className="w-full px-3.5 py-3 min-h-[44px] rounded-xl bg-[#7A5B45]/15 border border-[#7A5B45]/50 text-[#F2E9DA] placeholder-[#F2E9DA]/30 focus:outline-none focus:border-[#C08A2E] text-base sm:text-sm font-mono"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   <div>
                     <label className="block text-[11px] font-mono uppercase tracking-wider text-[#F2E9DA]/80 mb-1">
                       Date
@@ -516,7 +524,7 @@ export const ReservationModal = ({
                       required
                       value={formData.date}
                       onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                      className="w-full px-2.5 py-2 rounded-xl bg-[#7A5B45]/15 border border-[#7A5B45]/50 text-[#F2E9DA] text-xs font-mono focus:outline-none focus:border-[#C08A2E]"
+                      className="w-full px-3 py-2.5 min-h-[44px] rounded-xl bg-[#7A5B45]/15 border border-[#7A5B45]/50 text-[#F2E9DA] text-base sm:text-xs font-mono focus:outline-none focus:border-[#C08A2E]"
                     />
                   </div>
 
@@ -527,7 +535,7 @@ export const ReservationModal = ({
                     <select
                       value={formData.time}
                       onChange={(e) => setFormData({ ...formData, time: e.target.value })}
-                      className="w-full px-2.5 py-2 rounded-xl bg-[#2B211B] border border-[#7A5B45]/50 text-[#F2E9DA] text-xs font-mono focus:outline-none focus:border-[#C08A2E]"
+                      className="w-full px-3 py-2.5 min-h-[44px] rounded-xl bg-[#2B211B] border border-[#7A5B45]/50 text-[#F2E9DA] text-base sm:text-xs font-mono focus:outline-none focus:border-[#C08A2E]"
                     >
                       <option value="12:00">12:00</option>
                       <option value="12:30">12:30</option>
@@ -547,7 +555,7 @@ export const ReservationModal = ({
                     <select
                       value={formData.guests}
                       onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
-                      className="w-full px-2.5 py-2 rounded-xl bg-[#2B211B] border border-[#7A5B45]/50 text-[#F2E9DA] text-xs font-mono focus:outline-none focus:border-[#C08A2E]"
+                      className="w-full px-3 py-2.5 min-h-[44px] rounded-xl bg-[#2B211B] border border-[#7A5B45]/50 text-[#F2E9DA] text-base sm:text-xs font-mono focus:outline-none focus:border-[#C08A2E]"
                     >
                       <option value="1">1 personne</option>
                       <option value="2">2 personnes</option>
@@ -568,7 +576,7 @@ export const ReservationModal = ({
                     value={formData.notes}
                     onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                     placeholder="Terrasse, anniversaire, plat pré-commandé..."
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#7A5B45]/15 border border-[#7A5B45]/50 text-[#F2E9DA] placeholder-[#F2E9DA]/30 focus:outline-none focus:border-[#C08A2E] text-xs"
+                    className="w-full px-3.5 py-3 min-h-[44px] rounded-xl bg-[#7A5B45]/15 border border-[#7A5B45]/50 text-[#F2E9DA] placeholder-[#F2E9DA]/30 focus:outline-none focus:border-[#C08A2E] text-base sm:text-xs"
                   />
                 </div>
 

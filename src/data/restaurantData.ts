@@ -38,8 +38,6 @@ export interface AccompanimentOption {
 export const ACCOMPANIMENTS: AccompanimentOption[] = [
   { id: 'none', name: 'Sans accompagnement', price: 0, formattedPrice: '+0 FCFA', prepTime: '' },
   { id: 'alloco-dore', name: 'Alloco Doré', price: 1000, formattedPrice: '+1 000 FCFA', prepTime: '10-15 min' },
-  { id: 'attieke-frais', name: 'Attiéké Frais', price: 1000, formattedPrice: '+1 000 FCFA', prepTime: '5-10 min' },
-  { id: 'frites-igname', name: 'Frites d\'Igname', price: 1500, formattedPrice: '+1 500 FCFA', prepTime: '12-15 min' },
   { id: 'riz-blanc', name: 'Riz Blanc Parfumé', price: 1000, formattedPrice: '+1 000 FCFA', prepTime: '5-10 min' },
 ];
 
@@ -214,10 +212,10 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: 'attieke-frais',
     name: 'Attiéké Frais',
-    category: 'Accompagnements',
+    category: 'Plats',
     price: 4500,
     formattedPrice: '4 500 FCFA',
-    description: 'Semoule de manioc cuite à la vapeur, légèrement acidulée et aérée, accompagnement idéal des poissons braisés.',
+    description: 'Semoule de manioc cuite à la vapeur, légèrement acidulée et aérée, plat traditionnel servi avec garnitures fraîches et piment au choix.',
     image: IMAGES.attieke,
     badge: 'Tradition',
     prepTime: '5-10 min',
@@ -230,7 +228,7 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: 'frites-igname',
     name: 'Frites d\'Igname',
-    category: 'Accompagnements',
+    category: 'Plats',
     price: 1500,
     formattedPrice: '1 500 FCFA',
     description: 'Bâtonnets d\'igname du terroir béninois croustillants à l\'extérieur et tendres à cœur.',
@@ -414,7 +412,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: 'Plats',
     image: IMAGES.attieke,
     sizeSpan: 'normal',
-    description: 'Semoule de manioc vapeur aérée, l\'accompagnement par excellence.',
+    description: 'Plat traditionnel de semoule de manioc vapeur aérée et savoureuse.',
   },
   {
     id: 'g10',

@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Phone, UtensilsCrossed } from 'lucide-react';
 
 interface NavbarProps {
-  activeTab: 'accueil' | 'menu' | 'galerie' | 'apropos' | 'contact';
-  onNavigate: (tab: 'accueil' | 'menu' | 'galerie' | 'apropos' | 'contact', anchor?: string) => void;
+  activeTab: 'accueil' | 'menu' | 'galerie' | 'apropos' | 'contact' | 'admin';
+  onNavigate: (tab: 'accueil' | 'menu' | 'galerie' | 'apropos' | 'contact' | 'admin', anchor?: string) => void;
   onOpenReservation: () => void;
 }
 

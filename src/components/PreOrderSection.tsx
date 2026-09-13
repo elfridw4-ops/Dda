@@ -490,28 +490,32 @@ export const PreOrderSection = ({ onOpenReservationWithOrder }: PreOrderSectionP
 
                           {/* Plats Options (Accompagnement Payant & Piment Inclus) */}
                           {dish.category === 'Plats' && (
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t border-[#7A5B45]/25 text-[11px] font-mono">
-                              <div>
-                                <div className="flex items-center justify-between mb-1">
-                                  <span className="text-[#F2E9DA]/70 text-[10px]">Accompagnement</span>
-                                  {sidesPrice && sidesPrice > 0 ? (
-                                    <span className="text-[#C08A2E] font-semibold text-[10px]">+{sidesPrice.toLocaleString('fr-FR')} FCFA</span>
-                                  ) : (
-                                    <span className="text-[#F2E9DA]/40 text-[10px]">0 FCFA</span>
-                                  )}
+                            <div className={`grid gap-2 pt-2 border-t border-[#7A5B45]/25 text-[11px] font-mono ${
+                              dish.id === 'attieke-frais' || dish.id === 'frites-igname' ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-2'
+                            }`}>
+                              {dish.id !== 'attieke-frais' && dish.id !== 'frites-igname' && (
+                                <div>
+                                  <div className="flex items-center justify-between mb-1">
+                                    <span className="text-[#F2E9DA]/70 text-[10px]">Accompagnement</span>
+                                    {sidesPrice && sidesPrice > 0 ? (
+                                      <span className="text-[#C08A2E] font-semibold text-[10px]">+{sidesPrice.toLocaleString('fr-FR')} FCFA</span>
+                                    ) : (
+                                      <span className="text-[#F2E9DA]/40 text-[10px]">0 FCFA</span>
+                                    )}
+                                  </div>
+                                  <select
+                                    value={sides || 'none'}
+                                    onChange={(e) => updateSides(dish.id, e.target.value)}
+                                    className="w-full px-2 py-1.5 bg-[#2B211B] border border-[#7A5B45]/50 text-[#F2E9DA] rounded-lg text-[10px] focus:outline-none focus:border-[#C08A2E] cursor-pointer"
+                                  >
+                                    {ACCOMPANIMENTS.map((acc) => (
+                                      <option key={acc.id} value={acc.id}>
+                                        {acc.name} ({acc.formattedPrice})
+                                      </option>
+                                    ))}
+                                  </select>
                                 </div>
-                                <select
-                                  value={sides || 'none'}
-                                  onChange={(e) => updateSides(dish.id, e.target.value)}
-                                  className="w-full px-2 py-1.5 bg-[#2B211B] border border-[#7A5B45]/50 text-[#F2E9DA] rounded-lg text-[10px] focus:outline-none focus:border-[#C08A2E] cursor-pointer"
-                                >
-                                  {ACCOMPANIMENTS.map((acc) => (
-                                    <option key={acc.id} value={acc.id}>
-                                      {acc.name} ({acc.formattedPrice})
-                                    </option>
-                                  ))}
-                                </select>
-                              </div>
+                              )}
 
                               <div>
                                 <div className="flex items-center justify-between mb-1">
