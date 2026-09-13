@@ -520,17 +520,17 @@ export const PreOrderSection = ({ onOpenReservationWithOrder }: PreOrderSectionP
                               <div>
                                 <div className="flex items-center justify-between mb-1">
                                   <span className="text-[#F2E9DA]/70 text-[10px]">Piment & Force</span>
-                                  <span className="text-emerald-400 font-semibold text-[9px]">Inclus (0 FCFA)</span>
+                                  <span className="text-emerald-400 font-semibold text-[9px]">Inclus</span>
                                 </div>
                                 <select
                                   value={spiceLevel || 'Moyen'}
                                   onChange={(e) => updateSpice(dish.id, e.target.value)}
                                   className="w-full px-2 py-1.5 bg-[#2B211B] border border-[#7A5B45]/50 text-[#F2E9DA] rounded-lg text-[10px] focus:outline-none focus:border-[#C08A2E] cursor-pointer"
                                 >
-                                  <option value="Doux">Doux (Peu pimenté - 0 FCFA)</option>
-                                  <option value="Moyen">Moyen (Traditionnel béninois - 0 FCFA)</option>
-                                  <option value="Relevé">Relevé (Piment fort - 0 FCFA)</option>
-                                  <option value="À part">Piment servi à part (0 FCFA)</option>
+                                  <option value="Doux">Doux (Peu pimenté)</option>
+                                  <option value="Moyen">Moyen (Traditionnel béninois)</option>
+                                  <option value="Relevé">Relevé (Piment fort)</option>
+                                  <option value="À part">Piment servi à part</option>
                                 </select>
                               </div>
                             </div>
