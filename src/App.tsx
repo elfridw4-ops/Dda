@@ -7,6 +7,7 @@ import { PreOrderSection } from './components/PreOrderSection';
 import { ExperienceSection } from './components/ExperienceSection';
 import { AboutTeamSection } from './components/AboutTeamSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
+import { FaqSection } from './components/FaqSection';
 import { ContactSection } from './components/ContactSection';
 import { MenuPage } from './components/MenuPage';
 import { GalleryPage } from './components/GalleryPage';
@@ -241,7 +242,10 @@ export default function App() {
             {/* 7. Témoignages (Koffi Yao & Aminata Diop) */}
             <TestimonialsSection />
 
-            {/* 8. Contact (Form with delay/spinner + address Cotonou Fidjrossè) */}
+            {/* 8. Foire Aux Questions (Réservations, Horaires, Régimes & Saveurs) */}
+            <FaqSection onOpenReservation={handleOpenGeneralBooking} />
+
+            {/* 9. Contact (Form with delay/spinner + address Cotonou Fidjrossè) */}
             <ContactSection />
           </div>
         )}

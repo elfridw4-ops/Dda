@@ -80,6 +80,19 @@ export const Footer = ({ onNavigate }: FooterProps) => {
                   Contact & Réservation
                 </button>
               </li>
+              <li>
+                <button 
+                  onClick={() => {
+                    onNavigate('accueil');
+                    setTimeout(() => {
+                      document.getElementById('faq-section')?.scrollIntoView({ behavior: 'smooth' });
+                    }, 150);
+                  }}
+                  className="hover:text-[#C08A2E] transition-colors focus:outline-none"
+                >
+                  Questions fréquentes (FAQ)
+                </button>
+              </li>
             </ul>
           </div>
 
